@@ -1,0 +1,18 @@
+<table class="table">
+<thead>
+    <tr>
+    <th>nickname</th>
+    <th>profile</th>
+    <th>account_id</th>
+    </tr>
+</thead>
+
+<tbody>
+    <% @users.each do |user| %>
+    <tr>
+        <td><%= user.nickname %></td>
+        <td><%= user.profile %></td>
+        <td><%= user.account_id %></td>
+    </tr>
+    <% end %>
+</tbody>

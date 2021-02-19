@@ -1,0 +1,2 @@
+module CookpostsHelper
+end
