@@ -1,0 +1,25 @@
+<h1>cooking form </h1>
+<%= form_with model: @cookposts, local: true do |f| %>
+    <div>
+        <%= f.label :cooking_name, 'cooking_name' %>
+        <%= f.text_field :cooking_name %>
+    </div>
+    <div>
+        <%= f.label :cooking_recipe, 'cooking_recipe' %>
+        <%= f.text_field :cooking_recipe %>
+    </div>
+    <div>
+        <%= f.label :ingredients, 'ingredients' %>
+        <%= f.text_field :ingredients %>
+    </div>
+
+    <div>
+      <%= f.label :user_id %>
+        <div>
+          <%= @cookposts.user_id %>
+        </div>
+      <%= f.hidden_field :user_id %>
+    </div>
+    <p><%= f.submit "作成" %></p>
+    <div><%= link_to 'サインアウト', destroy_account_session_path, method: :delete %></div>
+<% end %>

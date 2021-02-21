@@ -1,18 +1,22 @@
 <table class="table">
 <thead>
     <tr>
-    <th>nickname</th>
-    <th>profile</th>
-    <th>account_id</th>
+    <th>cooking_name</th>
+    <th>ingredients</th>
+    <th>cooking_recipe</th>
+    <th>user_id</th>
     </tr>
 </thead>
 
 <tbody>
-    <% @users.each do |user| %>
+    <% @cookposts.each do |cookpost| %>
     <tr>
-        <td><%= user.nickname %></td>
-        <td><%= user.profile %></td>
-        <td><%= user.account_id %></td>
+        <td><%= cookpost.cooking_name %></td>
+        <td><%= cookpost.ingredients %></td>
+        <td><%= cookpost.cooking_recipe %></td>
+        <td><%= cookpost.user_id %></td>
     </tr>
     <% end %>
 </tbody>
+
+<%= link_to "料理投稿", cookposts_path %>

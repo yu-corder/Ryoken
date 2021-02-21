@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'ryoken', to: 'cooks#index'
   get 'ryoken/setup', to: 'cooks#main'
 
-
+  get 'cookposts', to: 'cookposts#new'
+  post 'cookposts', to: 'cookposts#create'
   root 'cooks#main'
 end
