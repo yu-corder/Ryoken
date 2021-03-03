@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Accounts::RegistrationsController < Devise::RegistrationsController
+  skip_before_action :redirect_to_ryoken_setup
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -52,7 +53,7 @@ class Accounts::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    new_user_path
+    users_new_path
   end
 
   # The path used after sign up for inactive accounts.

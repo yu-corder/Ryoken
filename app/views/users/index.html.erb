@@ -1,0 +1,28 @@
+<table class="table">
+<thead>
+    <tr>
+    <th>nickname</th>
+    <th>profile</th>
+    <th>account_id</th>
+    </tr>
+</thead>
+
+<tbody>
+    <% @user.each do |user| %>
+    <tr>
+        <td><%= user.nickname %></td>
+        <td><%= user.profile %></td>
+        <td><%= user.account_id %></td>
+        <td><a href = "/users/<%= user.account_id %>">編集</a></td>
+        <td><a href = "javascript:delData(<%= user.account_id %>);">削除</a></td>
+    </tr>
+    <% end %>
+</tbody>
+<script>
+function delData(num) {
+    if (confirm('この投稿を削除しますか？')) {
+        document.location = "/users/destroy/" + num;
+    }
+    return false;
+}
+</script>

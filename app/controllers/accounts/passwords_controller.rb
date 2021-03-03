@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Accounts::PasswordsController < Devise::PasswordsController
+  skip_before_action :redirect_to_ryoken_setup
   # GET /resource/password/new
   # def new
   #   super

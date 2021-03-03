@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Accounts::SessionsController < Devise::SessionsController
+  skip_before_action :redirect_to_ryoken_setup
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -26,10 +27,10 @@ class Accounts::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(resource)
-    ryoken_path
+    root_path
   end
   
   def after_sign_out_path_for(resource)
-    '/'
+    '/ryoken/setup'
   end
 end

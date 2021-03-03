@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Accounts::ConfirmationsController < Devise::ConfirmationsController
+  skip_before_action :redirect_to_ryoken_setup
   # GET /resource/confirmation/new
   # def new
   #   super

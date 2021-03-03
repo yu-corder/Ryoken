@@ -21,16 +21,25 @@
                 <%= image_tag image.to_s %>
             <% end %>
         </td>
-        
-        <td id = "likes_buttons_<%= cookpost.id %>">
-            <%= render partial: 'likes/like', locals: {cookpost: cookpost} %>
+        <td>
+             <i class="fas fa-thumbs-up"></i>
         </td>
-        
+        <td>
+            <%= cookpost.likes.length %>
+        </td>
+        <td><a href = "/cookposts/<%= cookpost.id %>">編集</a></td>
+        <td><a href = "javascript:delData(<%= cookpost.id %>);">削除</a></td>
     </tr>
     <% end %>
 </tbody>
 
-<%= link_to "料理投稿", cookposts_new_path %><br>
-<%= link_to "My 投稿", cookposts_path %> <br>
-<%= link_to "プロフィール", users_path %>
-
+<%= link_to "料理投稿", cookposts_new_path %>
+<%= link_to "ユーザー設定", 
+<script>
+function delData(num) {
+    if (confirm('この投稿を削除しますか？')) {
+        document.location = "/cookposts/destroy/" + num;
+    }
+    return false;
+}
+</script>

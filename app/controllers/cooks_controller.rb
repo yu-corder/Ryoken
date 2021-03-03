@@ -1,5 +1,5 @@
 class CooksController < ApplicationController
-    before_action :authenticate_account!, only: [:index]
+    skip_before_action :redirect_to_ryoken_setup, only: :main
 
     def index
       @cookposts = Cookpost.all

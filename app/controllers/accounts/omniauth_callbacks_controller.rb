@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Accounts::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  skip_before_action :redirect_to_ryoken_setup
   # You should configure your model like this:
   # devise :omniauthable, omniauth_providers: [:twitter]
 

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Accounts::UnlocksController < Devise::UnlocksController
+  skip_before_action :redirect_to_ryoken_setup
   # GET /resource/unlock/new
   # def new
   #   super

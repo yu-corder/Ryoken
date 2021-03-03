@@ -5,7 +5,7 @@ class CreateCookposts < ActiveRecord::Migration[6.1]
       t.text :ingredients
       t.text :cooking_recipe
       t.integer :user_id
-
+      t.json :images
       t.timestamps
     end
   end

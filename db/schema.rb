@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_19_070734) do
+ActiveRecord::Schema.define(version: 2021_03_01_060712) do
 
   create_table "accounts", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 2021_02_19_070734) do
     t.text "ingredients"
     t.text "cooking_recipe"
     t.integer "user_id"
+    t.json "images"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "likes", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "cookpost_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
