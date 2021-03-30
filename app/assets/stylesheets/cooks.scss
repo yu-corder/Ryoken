@@ -1,3 +1,807 @@
-// Place all the styles related to the cooks controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+html {
+    height: 100%;
+    width: 100%;
+}
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    background-color: none;
+}
+a:hover {
+    text-decoration: none;
+}
+
+@media screen and (min-width: 1024px) {
+    /* ryoken.html.erb */
+    .header {
+        width: 100%;
+        height: 100px;
+        background-color: #9fd8df;
+        position: fixed;
+        top: 0;
+        z-index: 10000;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    .ryoken-title {
+        font-size: 70px;
+        margin-left: 30px;
+    }
+    .ryoken-title-path {
+        color: #f0e4d7;
+    }
+    .bars {
+        display: none;
+    }
+    .global-nav {
+        padding-left: 0px;
+        margin-right: 20px;
+    }
+    .nav-ul, .nav-list {
+        list-style: none;
+        padding-left: 0;
+    }
+    .nav-list {
+        display: inline-block;
+        margin-right: 20px;
+    }
+    .nav-list-hide {
+        display: none;
+    }
+    .nav-list-path {
+        color: #f0e4d7;
+        font-size: 20px;
+    }
+    .header-nav-search {
+        display: flex;
+    }
+    .search-form {
+        margin-right: 20px;
+    }
+
+    /* set-up */
+
+    .main-box {
+        height: 100%;
+        width: 100%;
+        background-image: url('mediterranean-cuisine-2378758_1920.jpg');
+        background-size:cover;
+    }
+    .main-title {
+        font-size: 150px;
+        padding: 0px;
+        color: #f0e4d7;
+    }
+    .main-text {
+        font-size: 20px;
+        color: #f0e4d7;
+        margin-top: 50px;
+    }
+    .main-content-box {
+        height: 100%;
+        width: 100%;
+        display:flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items:center;
+        justify-content:center;
+    }
+    .login-link-1, .login-link-2 {
+        display: inline-block;
+        text-decoration: none;
+        padding: 20px;
+        border-radius: 10%;
+        color: #fff;
+    }
+    .login-link-1 {
+        background-color: #f5c0c0;
+        margin-right: 20px;
+    }
+    .login-link-2 {
+        background-color: #ff7171;
+        margin-left: 20px;
+    }
+    .login-link-1:hover, .login-link-2:hover {
+        background: #9fd8df;
+    }
+
+    /* login */
+    .login-container-box {
+        height: 100%;
+        width: 100%;
+        background-image: url('mediterranean-cuisine-2378758_1920.jpg');
+        background-size:cover;
+    }
+    .login-container {
+        height: 100%;
+        width: 50%;
+        margin: 0 auto;
+        background-color: #f0e4d7;
+    }
+    .login-form-box {
+        width: 50%;
+        padding-top: 100px;
+        margin: 0px auto;
+    }
+    .login-title {
+        margin-top: 0;
+    }
+    .field {
+        margin-bottom: 20px;
+    }
+    .text-field {
+        width: 300px;
+        height: 20px;
+    }
+    .actions {
+        margin-bottom: 20px;
+    }
+    .actions-btn {
+        background-color: #f5c0c0;
+        width: 80px;
+        height: 40px;
+        border: solid 0.3px #f5c0c0;
+        border-radius: 10%;
+        color: #fff;
+    }
+    .actions-btn:hover {
+        background: #9fd8df;
+    }
+    .login-form-link {
+        margin-bottom: 100px;
+    }
+    .actions-btn-2 {
+        background-color: #ff7171;
+        width: 80px;
+        height: 40px;
+        border: solid 0.3px  #ff7171;
+        border-radius: 10%;
+        color: #fff;
+    }
+    .actions-btn-2:hover {
+        background: #9fd8df;
+    }
+    /* users.new.html.erb edit.html.erb */
+
+    .form-nickname {
+        width: 300px;
+        height: 30px;
+        margin-top: 20px;
+    }
+    .form-profile {
+        width: 300px;
+        height: 80px;
+        margin-top: 20px;
+    }
+    .user-form-box {
+        height: 100%;
+        width: 100%;
+        background-image: url('mediterranean-cuisine-2378758_1920.jpg');
+        background-size:cover;
+    }
+    .user-form-container {
+        height: 100%;
+        width: 50%;
+        margin: 0 auto;
+        background-color: #f0e4d7;
+    }
+    .user-form-content {
+        width: 50%;
+        padding-top: 100px;
+        margin: 0px auto;
+    }
+
+    /* users index.html.erb*/
+    .section-cookpost-users {
+        margin: 30px 0;
+    }
+    .my-cooking-name {
+        margin-bottom: 30px;
+    }
+    .user-nickname {
+        white-space: nowrap;
+        display: inline-block;
+    }
+    .my-profile-cansel {
+        padding-top: 100px;
+    }
+    .cooking-ingredients-title {
+        margin: 30px 0;
+    }
+    .cooking-recipe-title {
+        margin: 30px 0;
+    }
+    .cooking-name {
+        margin: 30px 0;
+    }
+
+    /* cooks index.html.erb (root)*/
+
+    .cooks-container {
+        width: 50%;
+        margin: 0px auto;
+        padding-top: 150px;
+    }
+    .section-cookpost {
+        border-bottom: 1px solid #f0e4d7;
+        margin-top: 20px;
+    }
+    .cooking-name {
+        margin-bottom: 20px;
+    }
+
+    /* cookposts.index.html.erb */
+
+    .my-cooking-name {
+        display: inline-block;
+    }
+    .delete-path {
+        display: inline-block;
+        margin-left: 10px;
+    }
+    .edit-path {
+        display: inline-block;
+        margin-left: 30px;
+    }
+    .my-post {
+        margin-top: 20px;
+        font-size: 30px;
+    }
+
+    /* search.html.erb */
+
+    .hit-text {
+        font-size: 30px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+
+    /* cookpost _form.html.erb */
+
+    .cookposts-form-box {
+        height: auto;
+        width: 100%;
+        background-image: url('mediterranean-cuisine-2378758_1920.jpg');
+        background-size:cover;
+    }
+    .cookposts-form-container {
+        height: auto;
+        width: 75%;
+        margin: 0 auto;
+        background-color: #f0e4d7;
+        padding-bottom: 30px;
+    }
+    .cookposts-form-content {
+        height: auto;
+        width: 75%;
+        padding-top: 100px;
+        margin: 0px auto;
+    }
+    .form-cooking-name {
+        width: 300px;
+        height: 30px;
+        margin-top: 20px;
+    }
+    .form-ingredients {
+        width: 300px;
+        height: 500px;
+        margin-top: 20px;
+    }
+    .form-cooking-recipe {
+        width: 300px;
+        height: 500px;
+        margin-top: 20px;
+    }
+    .img_field {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .image-container-0 {
+        display: inline-block;
+        text-align: center;
+        width: 300px;
+        height: 100px;
+        line-height: 100px;
+        background-color: #f5c0c0;
+        margin-right: 150px;
+    }
+    .image-container-1 {
+        display: inline-block;
+        width: 200px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background-color: #f5c0c0;
+    }
+    .image-container-2 {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background-color: #f5c0c0;
+    }
+    .image-container-3 {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background-color: #f5c0c0;
+    }
+    .image-container-4 {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background-color: #f5c0c0;
+    }
+    .image-container-5 {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background-color: #f5c0c0;
+    }
+    .item-image {
+        display: inline-block;
+        vertical-align:  top;
+    }
+    .item-num-0 {
+        padding-left: 0;
+    }
+    #image-box-1 {
+        padding-left: 0;
+    }
+
+    .cookposts-cansel-box {
+        height: 100%;
+        width: 100%;
+        background-image: url('mediterranean-cuisine-2378758_1920.jpg');
+        background-size:cover;
+    }
+    .cookposts-cansel-container {
+        height: 100%;
+        width: 75%;
+        margin: 0 auto;
+        background-color: #f0e4d7;
+        padding-bottom: 30px;
+    }
+    .cookposts-cansel-content {
+        height: 100%;
+        width: 75%;
+        padding-top: 100px;
+        margin: 0px auto;
+    }
+    .cansel-text {
+        font-size: 30px;
+        color: #ff7171;
+    }
+    .cansel-text2 {
+        font-size: 30px;
+        color: #ff7171;
+    }
+}
+@media screen and (max-width: 1023px) {
+    /* ryoken.html.erb */
+    .header {
+        width: 100%;
+        height: 100px;
+        background-color: #9fd8df;
+        position: fixed;
+        top: 0;
+        z-index: 10000;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    .ryoken-title {
+        font-size: 70px;
+        margin-left: 30px;
+    }
+    .ryoken-title-path {
+        color: #f0e4d7;
+    }
+    .bars {
+        display: inline-block;
+        margin-right: 20px;
+        font-size: 50px;
+        color: #f0e4d7;;
+    }
+    .nav-list-hide {
+        display: inline-block;
+    }
+    .global-nav {
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        background: #fff;
+        color: #333;
+        text-align: center;
+        transform: translatex(100%);
+        transition: all 0.6s;
+        width: 100%;
+    }
+    .nav-ul {
+        background: rgb(240, 228, 215);
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+    }
+    .global-nav ul li:last-child {
+        font-size: 20px;
+        padding: 20px 0;
+        border-bottom: none;
+    }
+    .global-nav ul li a {
+        color: #333;
+        display: block;
+        padding: 1em 0;
+    }
+    .nav-active {
+        transform: translatex(0%);
+    }
+    .nav-list {
+        display: block;
+        width: 100%;
+        border-bottom: solid #333 1px;
+    }
+    .nav-list-path {
+        font-size: 20px;
+    }
+    .nav-list:hover {
+        background-color: #9fd8df;
+    }
+    .header-nav-search {
+        display: flex;
+    }
+    .search-form {
+        display: none;
+    }
+
+
+    /* set-up */
+
+    .main-box {
+        height: 100%;
+        width: 100%;
+        background-image: url('mediterranean-cuisine-2378758_1920.jpg');
+        background-size:cover;
+        position: relative;
+    }
+    .main-title {
+        font-size: 150px;
+        padding: 0px;
+        color: #f0e4d7;
+    }
+    .main-text {
+        font-size: 20px;
+        color: #f0e4d7;
+        margin-top: 50px;
+    }
+    .main-content-box {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 20%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    .main-title {
+        font-size: 15rem;
+        white-space: nowrap;
+    }
+    .login-link-1, .login-link-2 {
+        display: inline-block;
+        text-decoration: none;
+        padding: 20px;
+        border-radius: 10%;
+        color: #fff;
+    }
+    .login-link-1 {
+        background-color: #f5c0c0;
+        margin-right: 20px;
+
+    }
+    .login-link-2 {
+        background-color: #ff7171;
+        margin-left: 20px;
+    }
+    .login-link-1:hover, .login-link-2:hover {
+        background: #9fd8df;
+    }
+
+    /* login */
+    .login-container-box {
+        height: 100%;
+        width: 100%;
+        background-image: url('mediterranean-cuisine-2378758_1920.jpg');
+        background-size:cover;
+    }
+    .login-container {
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+        background-color: rgba(240, 228, 215, 0.5);
+    }
+    .login-form-box {
+        width: 50%;
+        padding-top: 100px;
+        margin: 0px auto;
+    }
+    .login-title {
+        margin-top: 0;
+    }
+    .field {
+        margin-bottom: 20px;
+    }
+    .text-field {
+        width: auto;
+        height: 20px;
+    }
+    .actions {
+        margin-bottom: 20px;
+    }
+    .actions-btn {
+        background-color: #f5c0c0;
+        width: 80px;
+        height: 40px;
+        border: solid 0.3px #f5c0c0;
+        border-radius: 10%;
+        color: #fff;
+    }
+    .actions-btn:hover {
+        background: #9fd8df;
+    }
+    .login-form-link {
+        margin-bottom: 100px;
+    }
+    .actions-btn-2 {
+        background-color: #ff7171;
+        width: 80px;
+        height: 40px;
+        border: solid 0.3px  #ff7171;
+        border-radius: 10%;
+        color: #fff;
+    }
+    .actions-btn-2:hover {
+        background: #9fd8df;
+    }
+
+    /* users.new.html.erb edit.html.erb */
+
+    .form-nickname {
+        width: auto;
+        height: 30px;
+        margin-top: 20px;
+    }
+    .form-profile {
+        width: auto;
+        height: 80px;
+        margin-top: 20px;
+    }
+    .user-form-box {
+        height: 100%;
+        width: 100%;
+        background-image: url('mediterranean-cuisine-2378758_1920.jpg');
+        background-size:cover;
+    }
+    .user-form-container {
+        height: 100%;
+        width: 100%;
+        margin: 0 auto;
+        background-color: rgba(240, 228, 215, 0.5);
+    }
+    .user-form-content {
+        width: 50%;
+        padding-top: 100px;
+        margin: 0px auto;
+    }
+
+    /* users index.html.erb*/
+    .section-cookpost-users {
+        margin: 30px 0;
+    }
+    .my-cooking-name {
+        margin-bottom: 30px;
+    }
+    .user-nickname {
+        white-space: nowrap;
+        display: inline-block;
+    }
+    .my-profile-cansel {
+        padding-top: 100px;
+    }
+    .cooking-ingredients-title {
+        margin: 30px 0;
+    }
+    .cooking-recipe-title {
+        margin: 30px 0;
+    }
+    .cooking-name {
+        margin: 30px 0;
+    }
+    /* cooks index.html.erb (root)*/
+
+    .cooks-container {
+        width: 50%;
+        margin: 0px auto;
+        padding-top: 150px;
+    }
+    .section-cookpost {
+        border-bottom: 1px solid #f0e4d7;
+        margin-top: 20px;
+    }
+    .cooking-name {
+        margin-bottom: 20px;
+    }
+
+    /* cookposts.index.html.erb */
+
+    .my-cooking-name {
+        display: inline-block;
+    }
+    .delete-path {
+        display: inline-block;
+        margin-left: 10px;
+    }
+    .edit-path {
+        display: inline-block;
+        margin-left: 10px;
+    }
+    .my-post {
+        margin-top: 20px;
+        font-size: 30px;
+    }
+
+    /* search.html.erb */
+
+    .hit-text {
+        font-size: 30px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* cookpost _form.html.erb */
+
+    .cookposts-form-box {
+        height: auto;
+        width: 100%;
+        background-image: url('mediterranean-cuisine-2378758_1920.jpg');
+        background-size:cover;
+    }
+    .cookposts-form-container {
+        height: auto;
+        width: 75%;
+        margin: 0 auto;
+        background-color: #f0e4d7;
+        padding-bottom: 30px;
+    }
+    .cookposts-form-content {
+        height: auto;
+        width: 75%;
+        padding-top: 100px;
+        margin: 0px auto;
+    }
+    .form-cooking-name {
+        width: 300px;
+        height: 30px;
+        margin-top: 20px;
+    }
+    .form-ingredients {
+        width: 300px;
+        height: 500px;
+        margin-top: 20px;
+    }
+    .form-cooking-recipe {
+        width: 300px;
+        height: 500px;
+        margin-top: 20px;
+    }
+    .img_field {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .image-container-0 {
+        display: inline-block;
+        text-align: center;
+        width: 300px;
+        height: 100px;
+        line-height: 100px;
+        background-color: #f5c0c0;
+        margin-right: 150px;
+    }
+    .image-container-1 {
+        display: inline-block;
+        width: 200px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background-color: #f5c0c0;
+    }
+    .image-container-2 {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background-color: #f5c0c0;
+    }
+    .image-container-3 {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background-color: #f5c0c0;
+    }
+    .image-container-4 {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background-color: #f5c0c0;
+    }
+    .image-container-5 {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background-color: #f5c0c0;
+    }
+    .item-image {
+        display: inline-block;
+        vertical-align:  top;
+    }
+    .item-num-0 {
+        padding-left: 0;
+    }
+    #image-box-1 {
+        padding-left: 0;
+    }
+
+    .cookposts-cansel-box {
+        height: 100%;
+        width: 100%;
+        background-image: url('mediterranean-cuisine-2378758_1920.jpg');
+        background-size:cover;
+    }
+    .cookposts-cansel-container {
+        height: 100%;
+        width: 75%;
+        margin: 0 auto;
+        background-color: #f0e4d7;
+        padding-bottom: 30px;
+    }
+    .cookposts-cansel-content {
+        height: 100%;
+        width: 75%;
+        padding-top: 100px;
+        margin: 0px auto;
+    }
+    .cansel-text {
+        font-size: 30px;
+        color: #ff7171;
+    }
+    .cansel-text2 {
+        font-size: 30px;
+        color: #ff7171;
+    }
+
+}

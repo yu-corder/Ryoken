@@ -1,0 +1,32 @@
+<%= form_with model: @cookposts, local: true do |f| %>
+    <div class = "field">
+        <%= f.label :cooking_name, '料理名' %><br>
+        <%= f.text_field :cooking_name, class: 'form-cooking-name'%>
+    </div>
+    <div class = "field">
+        <%= f.label :ingredients, '材料' %><br>
+        <%= f.text_area :ingredients, class: 'form-ingredients' %>
+    </div>
+    <div class = "field">
+        <%= f.label :cooking_recipe, 'レシピ' %><br>
+        <%= f.text_area :cooking_recipe, class: 'form-cooking-recipe'%>
+    </div>
+
+    <div id = "image-box-1">
+      <p>画像</p>
+      <div class = "item-num-0" id = "image-box__container">
+          <div class = "input-area">
+            <%= f.file_field :images, multiple: true, value:"", id:"img-file", type: 'file', style: "display:none" %>
+          </div>
+          <label id = "image-container" class = "image-container-0" for = "img-file">
+            <i class="fas fa-camera"></i>
+          </label>
+      </div>
+    </div>
+
+    <div class = "field">
+      <%= f.hidden_field :user_id %>
+    </div>
+
+    <p class = "cookposts-form-submit"><%= f.submit "作成", class: "actions-btn" %></p>
+<% end %>

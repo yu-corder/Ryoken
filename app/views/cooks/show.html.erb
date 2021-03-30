@@ -1,22 +1,23 @@
 <div class = "cooks-container">
   <% @cookposts.each do |cookpost| %>
     <section class = "section-cookpost">
-      <a href = "/show/<%= cookpost.id %>">
-        <h2 class = "cooking-name"><%= cookpost.cooking_name %></h2>
+        <h2 class = "my-cooking-name"><%= cookpost.cooking_name %></h2>
         <p>
             <% cookpost.images.each do |image| %>
-                <%= image_tag image.to_s %>
+                <%= image_tag image.to_s, width: '30%', height: '30%' %>
             <% end %>
         </p>
+        <h3 class = "cooking-ingredients-title">材料</h3>
+        <p class = "cooking-ingredients"><%= cookpost.ingredients %></p>
+
+        <h3 class = "cooking-recipe-title">レシピ</h3>
+        <p class = "cooking-recipe"><%= cookpost.cooking_recipe %></p>
+
+
         <p class = "cooking-nickname">by <%= cookpost.user.nickname %></p>
-      </a>
         <p id = "likes_buttons_<%= cookpost.id %>">
             <%= render partial: 'likes/like', locals: {cookpost: cookpost} %>
         </p>
     </section>
   <% end %>
 </div>
-
-
-
-

@@ -1,5 +1,10 @@
-<h1>Ryoken</h1>
-<div>
-  <%= link_to "ログイン",  new_account_session_path %>
-  <%= link_to "新規登録", new_account_registration_path %>
+<div class = "main-box">
+  <div class = "main-content-box">
+    <h1 class = "main-title">料研</h1>
+    <div class = "login-box">
+      <%= link_to "ログイン",  new_account_session_path, {class: "login-link-1"} %>
+      <%= link_to "新規登録", new_account_registration_path, {class: "login-link-2"} %>
+    </div>
+    <p class = "main-text">料理をシェアしよう。</p>
+  </div>
 </div>

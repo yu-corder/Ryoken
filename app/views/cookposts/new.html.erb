@@ -1,32 +1,24 @@
-<h1>cooking form </h1>
-<%= form_with model: @cookposts, local: true do |f| %>
-    <div>
-        <%= f.label :cooking_name, 'cooking_name' %>
-        <%= f.text_field :cooking_name %>
+<%= javascript_pack_tag 'test/cook', 'data-turbolinks-track': 'reload' %>
+<% if @user[0] != nil %>
+<div class = "cookposts-form-box">    
+    <div class = "cookposts-form-container">
+      <div class = "cookposts-form-content">
+        <h1>料理投稿</h1>
+        <%= render partial: 'form' %>
+        <%= link_to 'ホームへ', root_path %><br>
+      </div>
     </div>
-    <div>
-        <%= f.label :cooking_recipe, 'cooking_recipe' %>
-        <%= f.text_field :cooking_recipe %>
+</div>
+<% else %>
+<div class = "cookposts-cansel-box">
+  <div class = "cookposts-cansel-container">
+    <div class = "cookposts-cansel-content">
+        <p class = "cansel-text">ユーザー設定完了するまで投稿できません</p>
+        <p class = "cansel-text2">みんなの投稿を閲覧することはできます。</p>
+        <%= link_to 'ユーザー設定へ', users_new_path %><br>
+        <%= link_to 'ホームへ', root_path %>
     </div>
-    <div>
-        <%= f.label :ingredients, 'ingredients' %>
-        <%= f.text_field :ingredients %>
-    </div>
-    
-
-    
-    <div>
-      <%= f.label :images, 'images' %>
-      <%= f.file_field :images, multiple: true %>
-    </div>
-    
-    <div>
-      <%= f.label :user_id %>
-        <div>
-          <%= @cookposts.user_id %>
-        </div>
-      <%= f.hidden_field :user_id %>
-    </div>
-    <p><%= f.submit "作成" %></p>
-    <div><%= link_to 'サインアウト', destroy_account_session_path, method: :delete %></div>
+  </div>
+</div>
 <% end %>
+    

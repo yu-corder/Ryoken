@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ryoken</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <%= stylesheet_link_tag 'cooks', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/424ac5601c.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/event-target@latest/min.js"></script>
+    <script src="https://unpkg.com/resize-observer-polyfill@1.5.0/dist/ResizeObserver.global.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=IntersectionObserver"></script>
+  </head>
+
+  <body class = "body">
+  <header class = "header">
+    <h1 class = "ryoken-title"><%= link_to "料研", root_path, {class: "ryoken-title-path"} %></h1>
+    <div class = "header-nav-search">
+    　<p class = "bars" id = "bars"><i class="fas fa-bars"></i></p>
+      <nav class = "global-nav">
+        <ul class = "nav-ul">
+          <li class = "nav-list"><%= link_to "料理投稿", cookposts_new_path, {class: "nav-list-path"} %></li>
+          <li class = "nav-list"><%= link_to "プロフィール", users_path, {class: "nav-list-path"} %></li>
+          <li class = "nav-list"><%= link_to "お気に入り", mylikes_path, {class: "nav-list-path"} %></li>
+          <li class = "nav-list nav-list-hide nav-close">close</li>
+        </ul>
+      </nav>
+      <div class = "search-form">
+        <%= search_form_for(@q, url:search_cooks_path) do |f| %>
+          <%= f.search_field :cooking_name_or_ingredients_cont, placeholde: "料理名or材料" %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </header>
+    <%= yield %>
+  </body>
+</html>

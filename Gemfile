@@ -2,13 +2,16 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
-
+#検索機能
+gem 'ransack'
 #carrierwave
 gem 'carrierwave'
 #mini_magick
 gem 'mini_magick'
 #devise
 gem 'devise'
+#devise-jp
+gem 'devise-i18n'
 #kaminari
 gem 'kaminari'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'

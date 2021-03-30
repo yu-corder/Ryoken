@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2021_03_01_060712) do
   end
 
   create_table "likes", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.integer "cookpost_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

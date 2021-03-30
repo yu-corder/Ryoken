@@ -1,14 +1,11 @@
 class CookpostsController < ApplicationController
+    layout 'cooks'
     
-
-    def index
-        @cookposts = Cookpost.where(user_id: current_account.id)
-    end
-
 
     def new
         @cookposts = Cookpost.new
         @cookposts.user_id = current_account.id
+        @user = User.where(account_id: current_account.id)
     end
 
 
@@ -29,15 +26,16 @@ class CookpostsController < ApplicationController
         @cookposts = Cookpost.find params[:id]
         if request.patch? then
             @cookposts.update cookposts_params
-            redirect_to '/cookposts'
+            redirect_to '/users'
         end
     end 
 
     def destroy
         @cookposts = Cookpost.find(params[:id])
         @cookposts.destroy
-        redirect_to '/cookposts'
+        redirect_to '/users'
     end
+
 
     private
 

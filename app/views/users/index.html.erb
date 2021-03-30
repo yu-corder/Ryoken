@@ -1,27 +1,72 @@
-<table class="table">
-<thead>
-    <tr>
-    <th>nickname</th>
-    <th>profile</th>
-    <th>account_id</th>
-    </tr>
-</thead>
-
-<tbody>
+<% if @user[0] != nil %>
+<div class = "cooks-container">
     <% @user.each do |user| %>
-    <tr>
-        <td><%= user.nickname %></td>
-        <td><%= user.profile %></td>
-        <td><%= user.account_id %></td>
-        <td><a href = "/users/<%= user.account_id %>">編集</a></td>
-        <td><a href = "javascript:delData(<%= user.account_id %>);">削除</a></td>
-    </tr>
+
+        <h1 class = "user-nickname">
+            <%= user.nickname %>
+        </h1>
+        <span class = "edit-path"><a href = "/users/<%= user.account_id %>">編集</a></span>
+        <span class = "delete-path"><a href = "javascript:delData(<%= user.account_id %>);">削除</a></span>
+        <hr>
+
+        <p class = "user-profile-text">
+            -紹介文-
+        </p>
+        
+        <p class = "user-profile">
+            <%= user.profile %>
+        </p>
+        <hr>
+            
     <% end %>
-</tbody>
+    <% if @cookposts[0] != nil %>
+    <% @cookposts.each do |cookpost| %>
+        <section class = "section-cookpost-users">
+            <h2 class = "my-cooking-name"><%= cookpost.cooking_name %></h2>
+            <span class = "edit-path"><a href = "/cookposts/<%= cookpost.id %>">編集</a></span>
+            <span class = "delete-path" ><a href = "javascript:deldelData(<%= cookpost.id %>);">削除</a></span>
+            <p>
+                <% cookpost.images.each do |image| %>
+                    <%= image_tag image.to_s %>
+                <% end %>
+            </p>
+            <h3 class = "cooking-ingredients-title">材料</h3>
+            <p class = "cooking-ingredients"><%= cookpost.ingredients %></p>
+
+            <h3 class = "cooking-recipe-title">レシピ</h3>
+            <p class = "cooking-recipe"><%= cookpost.cooking_recipe %></p>
+
+            
+            <p>
+            <i class="fas fa-star"></i> <%= cookpost.likes.length %>
+            </p>
+            <hr>
+        </section>
+    <% end %>
+    <% else %>
+    <p class = "my-post">まだ投稿がありません</p>
+    <% end %>
+</div>
+<% else %>
+<div class = "my-profile-cansel">
+    <p class = "cansel-text">ユーザー設定されていません。</p>
+    <p class = "cansel-text2">ユーザー設定完了するまで投稿できません</p>
+    <%= link_to 'ユーザー設定へ', users_new_path %><br>
+    <%= link_to 'ホームへ', root_path %>
+</div>
+<% end %>
+
+
 <script>
 function delData(num) {
-    if (confirm('この投稿を削除しますか？')) {
+    if (confirm('アカウントを削除しますか？削除すると元に戻すことはできません。')) {
         document.location = "/users/destroy/" + num;
+    }
+    return false;
+}
+function deldelData(num) {
+    if (confirm('投稿を削除しますか？削除すると元に戻すことはできません。')) {
+        document.location = "/cookposts/destroy/" + num;
     }
     return false;
 }

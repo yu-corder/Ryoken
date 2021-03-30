@@ -1,21 +1,8 @@
-<h1>プロフィール設定</h1>
-<%= form_with model: @user, local: true do |f| %>
-    <div>
-        <%= f.label :nickname, 'nickname' %>
-        <%= f.text_field :nickname %>
+<div class = "user-form-box">    
+    <div class = "user-form-container">
+      <div class = "user-form-content">
+        <h1>プロフィール設定</h1>
+        <%= render partial: 'form' %>
+      </div>
     </div>
-    <div>
-        <%= f.label :profile, 'profile' %>
-        <%= f.text_field :profile %>
-    </div>
-
-    <div>
-      <%= f.label :account_id %>
-        <div>
-          <%= @user.account_id %>
-        </div>
-      <%= f.hidden_field :account_id %>
-    </div>
-    <p><%= f.submit "作成" %></p>
-    <div><%= link_to 'サインアウト', destroy_account_session_path, method: :delete %></div>
-<% end %>
+</div>

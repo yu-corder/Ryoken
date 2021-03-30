@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get 'cookposts/new', to: 'cookposts#new'
   post 'cookposts', to:'cookposts#create'
-  get 'cookposts', to: 'cookposts#index'
+  
   
   resources :cookposts, only:[:edit, :update]
   get 'cookposts/destroy/:id', to: 'cookposts#destroy'
@@ -30,6 +30,14 @@ Rails.application.routes.draw do
 
   post 'likes/:id', to: 'likes#create'
   
-  
+  get 'show/:id', to: 'cooks#show'
+
+  get 'mylikes', to: 'likes#index'
   root 'cooks#index'
+
+  resources :cooks do
+    collection do
+      get 'search'
+    end
+  end
 end

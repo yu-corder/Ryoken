@@ -1,5 +1,11 @@
 class LikesController < ApplicationController
+    layout 'cooks'
+    before_action :search_params, only: [:index]
     
+    def index
+      @likes = Like.where(user_id: current_account.id)
+      render :layout => 'ryoken'
+    end
 
     def create
       @cookposts = Cookpost.find_by(id: params[:id])
@@ -16,5 +22,10 @@ class LikesController < ApplicationController
         end
     end
 
+    private
+
+    def search_params
+      @q = Cookpost.order('created_at desc').ransack(params[:q])
+    end
     
 end
