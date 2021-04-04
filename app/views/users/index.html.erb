@@ -5,8 +5,9 @@
         <h1 class = "user-nickname">
             <%= user.nickname %>
         </h1>
-        <span class = "edit-path"><a href = "/users/<%= user.account_id %>">編集</a></span>
+        <span class = "edit-path"><a href = "/users/edit/<%= user.account_id %>">編集</a></span>
         <span class = "delete-path"><a href = "javascript:delData(<%= user.account_id %>);">削除</a></span>
+        <span class = "log-out-path"><%= link_to 'ログアウト', destroy_account_session_path, method: :delete %></span>
         <hr>
 
         <p class = "user-profile-text">
@@ -14,35 +15,38 @@
         </p>
         
         <p class = "user-profile">
-            <%= user.profile %>
+        　　<%= simple_format(user.profile) %>
         </p>
         <hr>
             
     <% end %>
     <% if @cookposts[0] != nil %>
     <% @cookposts.each do |cookpost| %>
-        <section class = "section-cookpost-users">
+        <div class = "section-cookpost-users">
             <h2 class = "my-cooking-name"><%= cookpost.cooking_name %></h2>
             <span class = "edit-path"><a href = "/cookposts/<%= cookpost.id %>">編集</a></span>
             <span class = "delete-path" ><a href = "javascript:deldelData(<%= cookpost.id %>);">削除</a></span>
             <p>
                 <% cookpost.images.each do |image| %>
-                    <%= image_tag image.to_s %>
+                    <%= image_tag image.to_s, width: '30%', height: '30%' %>
                 <% end %>
             </p>
             <h3 class = "cooking-ingredients-title">材料</h3>
-            <p class = "cooking-ingredients"><%= cookpost.ingredients %></p>
+            <p class = "cooking-ingredients"><%= simple_format(cookpost.ingredients) %></p>
 
             <h3 class = "cooking-recipe-title">レシピ</h3>
-            <p class = "cooking-recipe"><%= cookpost.cooking_recipe %></p>
+            <p class = "cooking-recipe"><%= simple_format(cookpost.cooking_recipe) %></p>
 
             
             <p>
             <i class="fas fa-star"></i> <%= cookpost.likes.length %>
             </p>
             <hr>
-        </section>
+        </div>
     <% end %>
+    <div class = "navigate">
+      <div class = "paginate"><%= paginate @cookposts %></div>
+    </div>
     <% else %>
     <p class = "my-post">まだ投稿がありません</p>
     <% end %>

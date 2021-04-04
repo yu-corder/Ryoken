@@ -3,7 +3,7 @@ class LikesController < ApplicationController
     before_action :search_params, only: [:index]
     
     def index
-      @likes = Like.where(user_id: current_account.id)
+      @likes = Like.where(user_id: current_account.id).page params[:page]
       render :layout => 'ryoken'
     end
 

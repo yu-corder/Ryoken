@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :accounts, controllers: {
     registrations: 'accounts/registrations',
-    sessions: 'accounts/sessions'
+    sessions: 'accounts/sessions',
+    confirmations: 'accounts/confirmations',
+    passwords: 'accounts/passwords',
+    unlocks: 'accounts/unlocks'
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
@@ -20,11 +23,14 @@ Rails.application.routes.draw do
   get 'users/new', to: 'users#new'
   post 'users', to: 'users#create'
   get 'users', to: 'users#index'
+  get 'users/show/:id', to: 'users#show'
+  get 'users/show/:id/:page', to: 'users#show'
 
   resources :users, only:[:edit, :update]
 
   get 'users/destroy/:id', to: 'users#destroy'
-  get 'users/:id', to: 'users#edit'
+  get 'users/edit/:id', to: 'users#edit'
+  get 'users/:page', to: 'users#index'
   
   resources :likes, only:[:destroy]
 
@@ -33,11 +39,15 @@ Rails.application.routes.draw do
   get 'show/:id', to: 'cooks#show'
 
   get 'mylikes', to: 'likes#index'
-  root 'cooks#index'
+  get 'mylikes/:page', to: 'likes#index'
+
+  get '/:page', to: 'cooks#index'
+  root to: 'cooks#index'
 
   resources :cooks do
     collection do
       get 'search'
+      get 'search/:page', to: 'cooks#search'
     end
   end
 end

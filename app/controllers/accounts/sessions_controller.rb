@@ -27,7 +27,12 @@ class Accounts::SessionsController < Devise::SessionsController
   # end
 
   def after_sign_in_path_for(resource)
-    root_path
+    @user = User.where(account_id: current_account.id)
+    if @user[0] != nil
+      root_path
+    else
+      users_new_path
+    end
   end
   
   def after_sign_out_path_for(resource)

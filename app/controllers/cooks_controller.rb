@@ -4,7 +4,7 @@ class CooksController < ApplicationController
     layout 'ryoken'
     
     def index
-      @cookposts = Cookpost.all.order('created_at desc')
+      @cookposts = Cookpost.all.order('created_at desc').page params[:page]
       
     end
 
@@ -18,7 +18,7 @@ class CooksController < ApplicationController
     end
 
     def search 
-      @results = @q.result
+      @results = @q.result.page params[:page]
     end
 
     private

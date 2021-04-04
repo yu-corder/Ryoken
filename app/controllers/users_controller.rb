@@ -1,10 +1,16 @@
 class UsersController < ApplicationController
     layout 'cooks'
-    before_action :search_params, only: [:index, :search]
+    before_action :search_params, only: [:index, :search, :show]
 
     def index
       @user = User.where(account_id: current_account.id)
-      @cookposts = Cookpost.where(user_id: current_account.id).order('created_at desc')
+      @cookposts = Cookpost.where(user_id: current_account.id).order('created_at desc').page params[:page]
+      render :layout => 'ryoken'
+    end
+
+    def show
+      @user = User.find params[:id]
+      @cookposts = Cookpost.where(user_id: @user.id).order('created_at desc').page params[:page]
       render :layout => 'ryoken'
     end
 

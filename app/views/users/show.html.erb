@@ -1,0 +1,44 @@
+<div class = "cooks-container">
+
+    <h1 class = "user-nickname">
+        <%= @user.nickname %>
+    </h1>
+    <hr>
+
+    <p class = "user-profile-text">
+        -紹介文-
+    </p>
+    
+    <p class = "user-profile">
+    　　<%= simple_format(@user.profile) %>
+    </p>
+    <hr>
+    <% if @cookposts[0] != nil %>
+    <% @cookposts.each do |cookpost| %>
+        <div class = "section-cookpost-users">
+            <h2 class = "my-cooking-name"><%= cookpost.cooking_name %></h2>
+            <p>
+                <% cookpost.images.each do |image| %>
+                    <%= image_tag image.to_s, width: '30%', height: '30%' %>
+                <% end %>
+            </p>
+            <h3 class = "cooking-ingredients-title">材料</h3>
+            <p class = "cooking-ingredients"><%= simple_format(cookpost.ingredients) %></p>
+
+            <h3 class = "cooking-recipe-title">レシピ</h3>
+            <p class = "cooking-recipe"><%= simple_format(cookpost.cooking_recipe) %></p>
+
+            
+            <p id = "likes_buttons_<%= cookpost.id %>">
+              <%= render partial: 'likes/like', locals: {cookpost: cookpost} %>
+        　　 </p>
+            <hr>
+        </div>
+    <% end %>
+    <div class = "navigate">
+      <div class = "paginate"><%= paginate @cookposts %></div>
+    </div>
+    <% else %>
+    <p class = "my-post">まだ投稿がありません</p>
+    <% end %>
+</div>

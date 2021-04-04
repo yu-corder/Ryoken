@@ -1,6 +1,6 @@
 <div class = "cooks-container">
   <% @cookposts.each do |cookpost| %>
-    <section class = "section-cookpost">
+    <div class = "section-cookpost">
         <h2 class = "my-cooking-name"><%= cookpost.cooking_name %></h2>
         <p>
             <% cookpost.images.each do |image| %>
@@ -8,16 +8,17 @@
             <% end %>
         </p>
         <h3 class = "cooking-ingredients-title">材料</h3>
-        <p class = "cooking-ingredients"><%= cookpost.ingredients %></p>
+        <p class = "cooking-ingredients"><%= simple_format(cookpost.ingredients) %></p>
 
         <h3 class = "cooking-recipe-title">レシピ</h3>
-        <p class = "cooking-recipe"><%= cookpost.cooking_recipe %></p>
+        <p class = "cooking-recipe"><%= simple_format(cookpost.cooking_recipe) %></p>
 
-
-        <p class = "cooking-nickname">by <%= cookpost.user.nickname %></p>
+        <a href = "/users/show/<%= cookpost.user.id %>">
+          <p class = "cooking-nickname">by <%= cookpost.user.nickname %></p>
+        </a>
         <p id = "likes_buttons_<%= cookpost.id %>">
             <%= render partial: 'likes/like', locals: {cookpost: cookpost} %>
         </p>
-    </section>
+    </div>
   <% end %>
 </div>
