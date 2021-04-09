@@ -4,12 +4,12 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
     && apt-get update -qq \
     && apt-get install -y nodejs yarn \
     && apt-get install -y imagemagick \
-    && mkdir /Ryoken
-WORKDIR /Ryoken
-COPY Gemfile /Ryoken/Gemfile
-COPY Gemfile.lock /Ryoken/Gemfile.lock
+    && mkdir /yu-blogs
+WORKDIR /yu-blogs
+COPY Gemfile /yu-blogs/Gemfile
+COPY Gemfile.lock /yu-blogs/Gemfile.lock
 RUN bundle install
-COPY . /Ryoken
+COPY . /yu-blogs
 RUN yarn install --check-files
 RUN bundle exec rails webpacker:compile
 RUN yarn add jquery
