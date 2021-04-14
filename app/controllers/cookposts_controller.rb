@@ -20,6 +20,9 @@ class CookpostsController < ApplicationController
 
     def edit
         @cookposts = Cookpost.find params[:id]
+        if @cookposts.user_id != current_account.id
+            redirect_to '/users'
+        end
     end
 
     def update

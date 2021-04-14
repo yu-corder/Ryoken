@@ -1,4 +1,4 @@
-<% if @user[0] != nil %>
+% if @user[0] != nil %>
 <div class = "cooks-container">
     <% @user.each do |user| %>
 
@@ -13,12 +13,9 @@
         <p class = "user-profile-text">
             -紹介文-
         </p>
-        
-        <p class = "user-profile">
-        　　<%= simple_format(user.profile) %>
-        </p>
+        <%= simple_format(user.profile, class: "user-profile") %>
         <hr>
-            
+
     <% end %>
     <% if @cookposts[0] != nil %>
     <% @cookposts.each do |cookpost| %>
@@ -32,12 +29,12 @@
                 <% end %>
             </p>
             <h3 class = "cooking-ingredients-title">材料</h3>
-            <p class = "cooking-ingredients"><%= simple_format(cookpost.ingredients) %></p>
+            <%= simple_format(cookpost.ingredients, class: 'cooking-ingredients') %>
 
             <h3 class = "cooking-recipe-title">レシピ</h3>
-            <p class = "cooking-recipe"><%= simple_format(cookpost.cooking_recipe) %></p>
+            <%= simple_format(cookpost.ingredients, class: 'cooking-recipe') %>
 
-            
+
             <p>
             <i class="fas fa-star"></i> <%= cookpost.likes.length %>
             </p>

@@ -9,19 +9,15 @@
             <% end %>
         </p>
       </a>
-      <p id = "likes_buttons_<%= cookpost.id %>">
-          <%= render partial: 'likes/like', locals: {cookpost: cookpost} %>
-      </p>
       <a href = "users/show/<%= cookpost.user.id %>">
           <p class = "cooking-nickname">by <%= cookpost.user.nickname %></p>
       </a>
+      <p id = "likes_buttons_<%= cookpost.id %>">
+          <%= render partial: 'likes/like', locals: {cookpost: cookpost} %>
+      </p>
     </div>
   <% end %>
   <div class = "navigate">
     <div class = "paginate"><%= paginate @cookposts %></div>
   </div>
 </div>
-
-
-
-

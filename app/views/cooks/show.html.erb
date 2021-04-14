@@ -8,10 +8,10 @@
             <% end %>
         </p>
         <h3 class = "cooking-ingredients-title">材料</h3>
-        <p class = "cooking-ingredients"><%= simple_format(cookpost.ingredients) %></p>
+        <%= simple_format(cookpost.ingredients, class: 'cooking-ingredients') %>
 
         <h3 class = "cooking-recipe-title">レシピ</h3>
-        <p class = "cooking-recipe"><%= simple_format(cookpost.cooking_recipe) %></p>
+        <%= simple_format(cookpost.ingredients, class: 'cooking-recipe') %>
 
         <a href = "/users/show/<%= cookpost.user.id %>">
           <p class = "cooking-nickname">by <%= cookpost.user.nickname %></p>

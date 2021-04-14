@@ -1,11 +1,17 @@
 html {
     height: 100%;
     width: 100%;
+    padding: 0;
 }
 body {
     height: 100%;
     width: 100%;
     margin: 0;
+    padding: 0;
+}
+.body1 {
+    margin: 0;
+    padding: 0;
 }
 a {
     text-decoration: none;
@@ -146,8 +152,10 @@ a:hover {
         width: 100%;
         background-image: url('mediterranean-cuisine-2378758_1920.jpg');
         background-size:cover;
+        padding: 0;
     }
     .login-container {
+        padding: 0;
         height: 100%;
         width: 50%;
         margin: 0 auto;
@@ -286,6 +294,7 @@ a:hover {
         display: inline-block;
         margin-left: 10px;
     }
+
 
     /* search.html.erb */
 
@@ -429,7 +438,7 @@ a:hover {
     /* ryoken.html.erb */
     .header {
         width: 100%;
-        height: 100px;
+        height: 200px;
         background-color: #9fd8df;
         position: fixed;
         top: 0;
@@ -439,7 +448,7 @@ a:hover {
         align-items: flex-end;
     }
     .ryoken-title {
-        font-size: 70px;
+        font-size: 140px;
         margin-left: 30px;
     }
     .ryoken-title-path {
@@ -448,7 +457,7 @@ a:hover {
     .bars {
         display: inline-block;
         margin-right: 20px;
-        font-size: 50px;
+        font-size: 100px;
         color: #f0e4d7;;
     }
     .nav-list-hide {
@@ -473,7 +482,7 @@ a:hover {
         width: 100%;
     }
     .global-nav ul li:last-child {
-        font-size: 20px;
+        font-size: 40px;
         padding: 20px 0;
         border-bottom: none;
     }
@@ -491,7 +500,7 @@ a:hover {
         border-bottom: solid #333 1px;
     }
     .nav-list-path {
-        font-size: 20px;
+        font-size: 40px;
     }
     .nav-list:hover {
         background-color: #9fd8df;
@@ -504,14 +513,13 @@ a:hover {
     }
     .search-form-res {
         display: block;
-        padding-top: 130px;
+        padding-top: 260px;
         width: 100%;
         text-align: right;
         margin-right: 20px;
         position: fixed;
         right: 0;
         z-index: 2;
-
     }
     /* set-up */
 
@@ -528,7 +536,7 @@ a:hover {
         color: #f0e4d7;
     }
     .main-text {
-        font-size: 20px;
+        font-size: 50px;
         color: #f0e4d7;
         margin-top: 50px;
     }
@@ -551,6 +559,7 @@ a:hover {
         padding: 20px;
         border-radius: 10%;
         color: #fff;
+        font-size:25px;
     }
     .login-link-1 {
         background-color: #f5c0c0;
@@ -564,6 +573,7 @@ a:hover {
     .login-link-1:hover, .login-link-2:hover {
         background: #9fd8df;
     }
+
 
     /* login */
     .login-container-box {
@@ -652,25 +662,34 @@ a:hover {
         margin: 0px auto;
     }
 
+
     /* users index.html.erb*/
     .section-cookpost-users {
         margin: 30px 0;
     }
     .my-cooking-name {
-        margin-bottom: 30px;
+        margin-bottom: 50px;
+        font-size: 70px;
     }
     .user-nickname {
+        font-size: 60px;
         white-space: nowrap;
         display: inline-block;
     }
     .my-profile-cansel {
-        padding-top: 100px;
+        padding-top: 400px;
     }
     .cooking-ingredients-title {
-        margin: 30px 0;
+        margin: 50px 0;
+        background-color: #f0e4d7;
+        border-left: #f0d7d7 20px solid;
+        padding: 20px;
     }
     .cooking-recipe-title {
-        margin: 30px 0;
+        background-color: #f0e4d7;
+        border-left: #f0d7d7 20px solid;
+        margin: 50px 0;
+        padding: 20px;
     }
     .cooking-name {
         margin: 30px 0;
@@ -680,7 +699,7 @@ a:hover {
     .cooks-container {
         width: 50%;
         margin: 0px auto;
-        padding-top: 200px;
+        padding-top: 400px;
     }
     .section-cookpost {
         border-bottom: 1px solid #f0e4d7;
@@ -688,6 +707,24 @@ a:hover {
     }
     .cooking-name {
         margin-bottom: 20px;
+        font-size: 50px;
+    }
+    .cooking-nickname {
+        font-size: 30px;
+        margin-top: 20px;
+    }
+    .fa-star {
+        font-size: 30px;
+        margin: 20px 0;
+    }
+
+    /* show.html.erb cooks */
+
+    .cooking-ingredients {
+        font-size: 30px;
+    }
+    .cooking-recipe {
+        font-size: 30px;
     }
 
     /* cookposts.index.html.erb */
@@ -697,17 +734,22 @@ a:hover {
     }
     .delete-path {
         display: inline-block;
-        margin-left: 10px;
+        font-size: 30px;
+        margin-left: 20px;
     }
     .edit-path {
         display: inline-block;
-        margin-left: 10px;
+        margin-left: 20px;
+        font-size: 30px;
+    }
+    .log-out-path {
+        margin-left:20px;
+        font-size: 30px;
     }
     .my-post {
         margin-top: 20px;
         font-size: 30px;
     }
-
     /* search.html.erb */
 
     .hit-text {
@@ -715,6 +757,13 @@ a:hover {
         margin-top: 20px;
         margin-bottom: 20px;
     }
+    .user-profile {
+        font-size: 30px;
+    }
+    .user-profile-text {
+        font-size: 20px;
+    }
+
 
     /* cookpost _form.html.erb */
 
