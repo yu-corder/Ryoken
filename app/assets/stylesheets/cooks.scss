@@ -577,18 +577,19 @@ a:hover {
 
     /* login */
     .login-container-box {
-        height: 100%;
+        height: auto;
         width: 100%;
         background-image: url('mediterranean-cuisine-2378758_1920.jpg');
         background-size:cover;
     }
     .login-container {
-        height: 100%;
+        height: auto;
         width: 100%;
         margin: 0 auto;
         background-color: rgba(240, 228, 215, 0.5);
     }
     .login-form-box {
+        height: auto;
         width: 50%;
         padding-top: 100px;
         margin: 0px auto;
@@ -630,6 +631,12 @@ a:hover {
     }
     .actions-btn-2:hover {
         background: #9fd8df;
+    }
+    .login-form {
+        height: 100%;
+    }
+    .sign-up-link {
+        height: 300px;
     }
 
     /* users.new.html.erb edit.html.erb */
@@ -775,14 +782,13 @@ a:hover {
     }
     .cookposts-form-container {
         height: auto;
-        width: 75%;
+        width: 100%;
         margin: 0 auto;
-        background-color: #f0e4d7;
-        padding-bottom: 30px;
+        background-color: rgba(240, 228, 215, 0.5);
     }
     .cookposts-form-content {
-        height: auto;
-        width: 75%;
+        padding-bottom: 30px;
+        width: 50%;
         padding-top: 100px;
         margin: 0px auto;
     }

@@ -25,11 +25,12 @@ class UsersController < ApplicationController
     end
     
     def create
-      @user = User.new
+      @user = User.new(user_params)
       @user.account_id = current_account.id
-      if request.post? then
-        @user = User.create user_params
+      if @user.save
         redirect_to '/'
+      else
+        render action: :new
       end
     end
 
@@ -42,16 +43,21 @@ class UsersController < ApplicationController
 
     def update
       @user = User.find params[:id]
-      if request.patch? then
-        @user = User.update user_params
+      if @user.update(user_params)
         redirect_to users_path
+      else
+        render action: :edit
       end
     end
     
     def destroy
       @user = User.find(params[:id])
-      @user.destroy
-      redirect_to '/ryoken/setup'
+      if @user.account_id != current_account.id
+        redirect_to '/users'
+      else
+        @user.destroy
+        redirect_to '/ryoken/setup'
+      end
     end
     
 

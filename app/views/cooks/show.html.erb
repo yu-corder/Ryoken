@@ -11,7 +11,7 @@
         <%= simple_format(cookpost.ingredients, class: 'cooking-ingredients') %>
 
         <h3 class = "cooking-recipe-title">レシピ</h3>
-        <%= simple_format(cookpost.ingredients, class: 'cooking-recipe') %>
+        <%= simple_format(cookpost.cooking_recipe, class: 'cooking-recipe') %>
 
         <a href = "/users/show/<%= cookpost.user.id %>">
           <p class = "cooking-nickname">by <%= cookpost.user.nickname %></p>

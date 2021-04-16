@@ -2,6 +2,20 @@ ja:
   activerecord:
     errors:
       models:
+        cookpost:
+          attributes:
+            cooking_name:
+              blank: "が入力されていません。"
+            ingredients:
+              blank: "が入力されていません。"
+            cooking_recipe:
+              blank: "が入力されていません。"
+
+        user:
+          attributes:
+            nickname:
+              blank: "が入力されていません。"
+              taken: "は既に使用されています。"   
         account:
           attributes:
             email:
@@ -19,7 +33,13 @@ ja:
             password_confirmation: 
               confirmation: "(確認用)がパスワードとあっていません。"
     attributes:
-      accounts:
+      cookpost:
+        cooking_name: "料理名"
+        ingredients: "材料"
+        cooking_recipe: "レシピ"
+      user:
+        nickname: "ニックネーム"
+      account:
         current_password: "現在のパスワード"
         email: "メールアドレス"
         password: "パスワード"
@@ -113,4 +133,3 @@ ja:
         sign_in: "ログイン"
         sign_in_with_provider: "%{provider}でログイン"
         sign_up: "アカウント登録"
-    

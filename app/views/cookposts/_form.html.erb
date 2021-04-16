@@ -1,3 +1,10 @@
+<% if @cookposts.errors.any? %>
+<ul>
+  <% @cookposts.errors.full_messages.each do |err| %>
+      <li><%= err %></li>
+  <% end %>
+</ul>
+<% end %>
 <%= form_with model: @cookposts, local: true do |f| %>
     <div class = "field">
         <%= f.label :cooking_name, '料理名' %><br>

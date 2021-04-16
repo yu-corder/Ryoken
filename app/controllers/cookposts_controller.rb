@@ -10,11 +10,13 @@ class CookpostsController < ApplicationController
 
 
     def create
-        @cookposts = Cookpost.new
+        @cookposts = Cookpost.new(cookposts_params)
         @cookposts.user_id = current_account.id
-        if request.post? then
-          @cookposts = Cookpost.create(cookposts_params)
+        @user = User.where(account_id: current_account.id)
+        if @cookposts.save
           redirect_to '/'
+        else
+            render :new
         end
     end
 
@@ -27,16 +29,21 @@ class CookpostsController < ApplicationController
 
     def update
         @cookposts = Cookpost.find params[:id]
-        if request.patch? then
-            @cookposts.update cookposts_params
+        if @cookposts.update(cookposts_params)
             redirect_to '/users'
+        else
+            render action: :edit
         end
-    end 
+    end  
 
     def destroy
         @cookposts = Cookpost.find(params[:id])
-        @cookposts.destroy
-        redirect_to '/users'
+        if @cookposts.user_id != current_account.id
+            redirect_to '/users'
+        else
+          @cookposts.destroy
+          redirect_to '/users'
+        end
     end
 
 
