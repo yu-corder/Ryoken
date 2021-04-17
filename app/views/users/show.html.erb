@@ -14,11 +14,16 @@
     <% @cookposts.each do |cookpost| %>
         <div class = "section-cookpost-users">
             <h2 class = "my-cooking-name"><%= cookpost.cooking_name %></h2>
-            <p>
+
+            <div class = "modal-wrapper">
+              <img src="" alt="" class="modal-image">
+            </div>
+
+            <div class = "wrapper">
                 <% cookpost.images.each do |image| %>
-                    <%= image_tag image.to_s, width: '30%', height: '30%' %>
+                    <%= image_tag image.to_s, width: '30%', height: '30%', class: "image", data: { src: image.to_s} %>
                 <% end %>
-            </p>
+            </div>
             <h3 class = "cooking-ingredients-title">材料</h3>
             <%= simple_format(cookpost.ingredients, class: 'cooking-ingredients') %>
 
@@ -39,3 +44,22 @@
     <p class = "my-post">まだ投稿がありません</p>
     <% end %>
 </div>
+<script>
+  $(document).on('turbolinks:load', function() {
+        $(function() {
+        $('.image').on('click', function() {
+            $('.modal-wrapper').addClass('show');
+            $('.modal-image').addClass('show');
+            var imageSrc = $('.image').attr('src');
+            $('.modal-image').attr('src', imageSrc);
+        });
+        $('.modal-wrapper').on('click', function(){
+            if (this.classList.contains('show')) {
+                this.classList.remove('show');
+                $('.modal-image').removeClass('show');
+            }
+        })
+     });
+  });
+
+</script>

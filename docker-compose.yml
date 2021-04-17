@@ -13,10 +13,10 @@ services:
   web:
     build: .
     volumes:
-      - .:/yu-blogs
-      - public-data:/yu-blogs/public
-      - tmp-data:/yu-blogs/tmp
-      - log-data:/yu-blogs/log
+      - .:/Ryoken
+      - public-data:/Ryoken/public
+      - tmp-data:/Ryoken/tmp
+      - log-data:/Ryoken/log
     depends_on:
       - db
     environment:
@@ -28,8 +28,8 @@ services:
       context: containers/nginx
       dockerfile: Dockerfile
     volumes:
-      - public-data:/yu-blogs/public
-      - tmp-data:/yu-blogs/tmp
+      - public-data:/Ryoken/public
+      - tmp-data:/Ryoken/tmp
     ports:
       - 80:80
     depends_on:

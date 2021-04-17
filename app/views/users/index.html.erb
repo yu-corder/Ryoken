@@ -1,4 +1,4 @@
-% if @user[0] != nil %>
+<% if @user[0] != nil %>
 <div class = "cooks-container">
     <% @user.each do |user| %>
 
@@ -23,11 +23,16 @@
             <h2 class = "my-cooking-name"><%= cookpost.cooking_name %></h2>
             <span class = "edit-path"><a href = "/cookposts/<%= cookpost.id %>">編集</a></span>
             <span class = "delete-path" ><a href = "javascript:deldelData(<%= cookpost.id %>);">削除</a></span>
-            <p>
+
+            <div class = "modal-wrapper">
+              <img src="" alt="" class="modal-image">
+            </div>
+
+            <div class = "wrapper">
                 <% cookpost.images.each do |image| %>
-                    <%= image_tag image.to_s, width: '30%', height: '30%' %>
+                    <%= image_tag image.to_s, width: '30%', height: '30%', class: "image", data: { src: image.to_s} %>
                 <% end %>
-            </p>
+            </div>
             <h3 class = "cooking-ingredients-title">材料</h3>
             <%= simple_format(cookpost.ingredients, class: 'cooking-ingredients') %>
 
@@ -71,4 +76,23 @@ function deldelData(num) {
     }
     return false;
 }
+
+
+
+$(document).on('turbolinks:load', function() {
+    $(function() {
+        $('.image').on('click', function() {
+            $('.modal-wrapper').addClass('show');
+            $('.modal-image').addClass('show');
+            var imageSrc = $('.image').attr('src');
+            $('.modal-image').attr('src', imageSrc);
+        });
+        $('.modal-wrapper').on('click', function(){
+            if (this.classList.contains('show')) {
+                this.classList.remove('show');
+                $('.modal-image').removeClass('show');
+            }
+        })
+    });
+});
 </script>
