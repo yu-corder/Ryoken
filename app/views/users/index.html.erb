@@ -5,9 +5,14 @@
         <h1 class = "user-nickname">
             <%= user.nickname %>
         </h1>
-        <span class = "edit-path"><a href = "/users/edit/<%= user.account_id %>">編集</a></span>
-        <span class = "delete-path"><a href = "javascript:delData(<%= user.account_id %>);">削除</a></span>
-        <span class = "log-out-path"><%= link_to 'ログアウト', destroy_account_session_path, method: :delete %></span>
+
+        <ul class = "user-menu">
+          <li class = "user-menu-list">設定<i class="fas fa-sort-down user-menu-fa-down"></i></li>
+          <li class = "user-menu-hide"><a href = "/users/edit/<%= user.account_id %>">編集</a></li>
+          <li class = "user-menu-hide"><a href = "javascript:delData(<%= user.account_id %>);">退会</a></li>
+          <li class = "user-menu-hide"><%= link_to 'ログアウト', destroy_account_session_path, method: :delete %></li>
+        </ul>
+    
         <hr>
 
         <p class = "user-profile-text">
@@ -21,8 +26,12 @@
     <% @cookposts.each do |cookpost| %>
         <div class = "section-cookpost-users">
             <h2 class = "my-cooking-name"><%= cookpost.cooking_name %></h2>
-            <span class = "edit-path"><a href = "/cookposts/<%= cookpost.id %>">編集</a></span>
-            <span class = "delete-path" ><a href = "javascript:deldelData(<%= cookpost.id %>);">削除</a></span>
+
+            <ul class = "user-menu-2">
+                <li class = "user-menu-list-2">設定<i class="fas fa-sort-down user-menu-fa-down-2"></i></li>
+                <li class = "user-menu-hide-2"><a href = "/cookposts/<%= cookpost.id %>">編集</a></li>
+                <li class = "user-menu-hide-2"><a href = "javascript:deldelData(<%= cookpost.id %>);">削除</a></li>
+            </ul>
 
             <div class = "modal-wrapper">
               <img src="" alt="" class="modal-image">
@@ -92,6 +101,16 @@ $(document).on('turbolinks:load', function() {
                 this.classList.remove('show');
                 $('.modal-image').removeClass('show');
             }
+        })
+        $('.user-menu-list').on('click', function() {
+            $('.user-menu-hide:not(:animated)').slideToggle();
+            $('.user-menu-fa-down').toggleClass('fa-active');
+
+        })
+        $('.user-menu-list-2').on('click', function() {
+            $('.user-menu-hide-2:not(:animated)').slideToggle();
+            $('.user-menu-fa-down-2').toggleClass('fa-active');
+
         })
     });
 });

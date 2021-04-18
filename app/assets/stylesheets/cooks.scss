@@ -936,3 +936,51 @@ a:hover {
 .image {
     cursor: pointer;
 }
+
+/* user.index.html.erb menu */
+
+.user-menu-hide {
+    display: none;
+    font-size: 15px;
+    padding: 10px;
+    border: 1px solid rgba(51, 51, 51, 0.5);
+}
+.user-menu {
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    margin-bottom: 30px;
+    list-style: none;
+}
+.user-menu-list {
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 0 20px;
+    border: 1px solid rgba(51, 51, 51, 0.5);
+}
+.fa-sort-down {
+    margin-left: 10px;
+    transition: all 500ms 0s ease;
+}
+.fa-active {
+    transform: rotate(0.5turn);
+}
+.user-menu-hide-2 {
+    display: none;
+    font-size: 15px;
+    padding: 10px;
+    border: 1px solid rgba(51, 51, 51, 0.5);
+}
+.user-menu-2 {
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    margin-bottom: 30px;
+    list-style: none;
+}
+.user-menu-list-2 {
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 0 20px;
+    border: 1px solid rgba(51, 51, 51, 0.5);
+}
