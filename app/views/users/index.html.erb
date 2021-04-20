@@ -73,45 +73,45 @@
 
 
 <script>
-function delData(num) {
-    if (confirm('アカウントを削除しますか？削除すると元に戻すことはできません。')) {
-        document.location = "/users/destroy/" + num;
+    function delData(num) {
+        if (confirm('アカウントを削除しますか？削除すると元に戻すことはできません。')) {
+            document.location = "/users/destroy/" + num;
+        }
+        return false;
     }
-    return false;
-}
-function deldelData(num) {
-    if (confirm('投稿を削除しますか？削除すると元に戻すことはできません。')) {
-        document.location = "/cookposts/destroy/" + num;
+    function deldelData(num) {
+        if (confirm('投稿を削除しますか？削除すると元に戻すことはできません。')) {
+            document.location = "/cookposts/destroy/" + num;
+        }
+        return false;
     }
-    return false;
-}
 
 
 
-$(document).on('turbolinks:load', function() {
-    $(function() {
-        $('.image').on('click', function() {
-            $('.modal-wrapper').addClass('show');
-            $('.modal-image').addClass('show');
-            var imageSrc = $('.image').attr('src');
-            $('.modal-image').attr('src', imageSrc);
+    $(document).on('turbolinks:load', function() {
+        $(function() {
+            $('.image').on('click', function() {
+                $(this).parent("div").prev("div").addClass('show');
+                $(this).parent("div").prev("div").children("img").addClass('show');
+                var imageSrc = $(this).attr('src');
+                $(this).parent("div").prev("div").children("img").attr('src', imageSrc);
+            });
+            $('.modal-wrapper').on('click', function(){
+                if (this.classList.contains('show')) {
+                    this.classList.remove('show');
+                    $(this).children("img").removeClass('show');
+                }
+            })
+            $('.user-menu-list').on('click', function() {
+                $('.user-menu-hide:not(:animated)').slideToggle();
+                $('.user-menu-fa-down').toggleClass('fa-active');
+
+            })
+            $('.user-menu-list-2').on('click', function() {
+                $('.user-menu-hide-2:not(:animated)').slideToggle();
+                $('.user-menu-fa-down-2').toggleClass('fa-active');
+
+            })
         });
-        $('.modal-wrapper').on('click', function(){
-            if (this.classList.contains('show')) {
-                this.classList.remove('show');
-                $('.modal-image').removeClass('show');
-            }
-        })
-        $('.user-menu-list').on('click', function() {
-            $('.user-menu-hide:not(:animated)').slideToggle();
-            $('.user-menu-fa-down').toggleClass('fa-active');
-
-        })
-        $('.user-menu-list-2').on('click', function() {
-            $('.user-menu-hide-2:not(:animated)').slideToggle();
-            $('.user-menu-fa-down-2').toggleClass('fa-active');
-
-        })
     });
-});
 </script>

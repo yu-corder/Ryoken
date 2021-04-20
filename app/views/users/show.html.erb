@@ -45,21 +45,20 @@
     <% end %>
 </div>
 <script>
-  $(document).on('turbolinks:load', function() {
+    $(document).on('turbolinks:load', function() {
         $(function() {
-        $('.image').on('click', function() {
-            $('.modal-wrapper').addClass('show');
-            $('.modal-image').addClass('show');
-            var imageSrc = $('.image').attr('src');
-            $('.modal-image').attr('src', imageSrc);
+            $('.image').on('click', function() {
+                $(this).parent("div").prev("div").addClass('show');
+                $(this).parent("div").prev("div").children("img").addClass('show');
+                var imageSrc = $(this).attr('src');
+                $(this).parent("div").prev("div").children("img").attr('src', imageSrc);
+            });
+            $('.modal-wrapper').on('click', function(){
+                if (this.classList.contains('show')) {
+                    this.classList.remove('show');
+                    $(this).children("img").removeClass('show');
+                }
+            })
         });
-        $('.modal-wrapper').on('click', function(){
-            if (this.classList.contains('show')) {
-                this.classList.remove('show');
-                $('.modal-image').removeClass('show');
-            }
-        })
-     });
-  });
-
+    });
 </script>
