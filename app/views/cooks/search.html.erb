@@ -1,26 +1,28 @@
 <div class = "cooks-container">
-<% if @results.present? %>
-    <p class = "hit-text"><%= @results.total_count %>件ヒット</p>
-    <% @results.each do |result| %>
-    <section class = "section-cookpost">
-      <a href = "/show/<%= result.id %>">
-        <h2 class = "cooking-name"><%= result.cooking_name %></h2>
-        <p>
-            <% result.images.each do |image| %>
-                <%= image_tag image.to_s, width: '30%', height: '30%' %>
-            <% end %>
-        </p>
-        <p class = "cooking-nickname">by <%= result.user.nickname %></p>
-      </a>
-        <p id = "likes_buttons_<%= result.id %>">
-            <%= render partial: 'likes/like', locals: {cookpost: result} %>
-        </p>
-    </section>
+    <% if @results.present? %>
+        <p class = "hit-text"><%= @results.total_count %>件ヒット</p>
+        <% @results.each do |result| %>
+            <section class = "section-cookpost">
+            
+                <a href = "/show/<%= result.id %>">
+                    <h2 class = "cooking-name"><%= result.cooking_name %></h2>
+                    <p>
+                        <% result.images.each do |image| %>
+                            <%= image_tag image.to_s, width: '30%', height: '30%' %>
+                        <% end %>
+                    </p>
+                    <p class = "cooking-nickname">by <%= result.user.nickname %></p>
+                </a>
+
+                <p id = "likes_buttons_<%= result.id %>">
+                    <%= render partial: 'likes/like', locals: {cookpost: result} %>
+                </p>
+            </section>
+        <% end %>
+        <div class = "navigate">
+            <div class = "paginate"><%= paginate @results %></div>
+        </div>
+    <% else %>
+        <p class = "hit-text">ヒット無し</p>
     <% end %>
-    <div class = "navigate">
-      <div class = "paginate"><%= paginate @results %></div>
-    </div>
-<% else %>
-    <p class = "hit-text">ヒット無し</p>
-<% end %>
 </div>

@@ -1,48 +1,49 @@
 <div class = "cooks-container">
-  <% @cookposts.each do |cookpost| %>
-    <div class = "section-cookpost">
-        <h2 class = "my-cooking-name"><%= cookpost.cooking_name %></h2>
+    <% @cookposts.each do |cookpost| %>
+        <div class = "section-cookpost">
+            <h2 class = "my-cooking-name"><%= cookpost.cooking_name %></h2>
 
-        <div class = "modal-wrapper">
-          <img src="" alt="" class="modal-image">
+            <div class = "modal-wrapper">
+                <img src="" alt="" class="modal-image">
+            </div>
+
+            <div class = "wrapper">
+                <% cookpost.images.each do |image| %>
+                    <%= image_tag image.to_s, width: '30%', height: '30%', class: "image", data: { src: image.to_s} %>
+                <% end %>
+            </div>
+            <h3 class = "cooking-ingredients-title">材料</h3>
+            <%= simple_format(cookpost.ingredients, class: 'cooking-ingredients') %>
+
+            <h3 class = "cooking-recipe-title">レシピ</h3>
+            <%= simple_format(cookpost.cooking_recipe, class: 'cooking-recipe') %>
+
+            <a href = "/users/show/<%= cookpost.user.id %>">
+                <p class = "cooking-nickname">by <%= cookpost.user.nickname %></p>
+            </a>
+            <p id = "likes_buttons_<%= cookpost.id %>">
+                <%= render partial: 'likes/like', locals: {cookpost: cookpost} %>
+            </p>
         </div>
-
-        <div class = "wrapper">
-            <% cookpost.images.each do |image| %>
-                <%= image_tag image.to_s, width: '30%', height: '30%', class: "image", data: { src: image.to_s} %>
-            <% end %>
-        </div>
-        <h3 class = "cooking-ingredients-title">材料</h3>
-        <%= simple_format(cookpost.ingredients, class: 'cooking-ingredients') %>
-
-        <h3 class = "cooking-recipe-title">レシピ</h3>
-        <%= simple_format(cookpost.cooking_recipe, class: 'cooking-recipe') %>
-
-        <a href = "/users/show/<%= cookpost.user.id %>">
-          <p class = "cooking-nickname">by <%= cookpost.user.nickname %></p>
-        </a>
-        <p id = "likes_buttons_<%= cookpost.id %>">
-            <%= render partial: 'likes/like', locals: {cookpost: cookpost} %>
-        </p>
-    </div>
-  <% end %>
+    <% end %>
 </div>
 <script>
+
   $(document).on('turbolinks:load', function() {
     $(function() {
-    $('.image').on('click', function() {
-        $('.modal-wrapper').addClass('show');
-        $('.modal-image').addClass('show');
-        var imageSrc = $('.image').attr('src');
-        $('.modal-image').attr('src', imageSrc);
-    });
-    $('.modal-wrapper').on('click', function(){
+      $('.image').on('click', function() {
+          $('.modal-wrapper').addClass('show');
+          $('.modal-image').addClass('show');
+          var imageSrc = $('.image').attr('src');
+          $('.modal-image').attr('src', imageSrc);
+      });
+      $('.modal-wrapper').on('click', function(){
         if (this.classList.contains('show')) {
             this.classList.remove('show');
             $('.modal-image').removeClass('show');
         }
-    })
-   });
+      })
+    });
   });
 
 </script>

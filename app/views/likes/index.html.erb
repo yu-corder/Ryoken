@@ -1,28 +1,28 @@
 <div class = "cooks-container">
-<% if @likes[0] != nil %>
-    <% @likes.each do |like| %>
-        <div class = "section-cookpost">
-          <a href = "/show/<%= like.cookpost.id %>">
-            <h2 class = "cooking-name"><%= like.cookpost.cooking_name %></h2>
-            <p>
-              <% like.cookpost.images.each do |image| %>
-                <%= image_tag image.to_s, width: '30%', height: '30%' %>
-              <% end %>
-            </p>
-          </a>
-          <p id = "likes_buttons_<%= like.cookpost.id %>">
-            <%= render partial: 'likes/like', locals: {cookpost: like.cookpost} %>
-          </p>
-          <a href = "users/show/<%= like.cookpost.user.id %>">
-            <p class = "cooking-nickname">by <%= like.cookpost.user.nickname %></p>
-      　　 </a>
+  <% if @likes[0] != nil %>
+        <% @likes.each do |like| %>
+            <div class = "section-cookpost">
+                <a href = "/show/<%= like.cookpost.id %>">
+                    <h2 class = "cooking-name"><%= like.cookpost.cooking_name %></h2>
+                    <p>
+                        <% like.cookpost.images.each do |image| %>
+                            <%= image_tag image.to_s, width: '30%', height: '30%' %>
+                        <% end %>
+                    </p>
+                </a>
+                <p id = "likes_buttons_<%= like.cookpost.id %>">
+                    <%= render partial: 'likes/like', locals: {cookpost: like.cookpost} %>
+                </p>
+                <a href = "users/show/<%= like.cookpost.user.id %>">
+                    <p class = "cooking-nickname">by <%= like.cookpost.user.nickname %></p>
+            　　 </a>
+            </div>
+        <% end %>
+        <div class = "navigate">
+            <div class = "paginate"><%= paginate @likes %></div>
         </div>
-    <% end %>
-    <div class = "navigate">
-      <div class = "paginate"><%= paginate @likes %></div>
-    </div>
-<% else %>
-<p class = "my-post">いいねした投稿がありません。</p>
-<% end %>
+  <% else %>
+      <p class = "my-post">いいねした投稿がありません。</p>
+  <% end %>
 </div>
 

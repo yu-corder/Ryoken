@@ -1,24 +1,24 @@
 <%= javascript_pack_tag 'test/cook', 'data-turbolinks-track': 'reload' %>
 <% if @user[0] != nil %>
-<div class = "cookposts-form-box">    
-    <div class = "cookposts-form-container">
-      <div class = "cookposts-form-content">
-        <h1>料理投稿</h1>
-        <%= render partial: 'form' %>
-        <%= link_to 'ホームへ', root_path, {class: "root-path"} %><br>
+  <div class = "cookposts-form-box">    
+      <div class = "cookposts-form-container">
+          <div class = "cookposts-form-content">
+              <h1>料理投稿</h1>
+              <%= render partial: 'form' %>
+              <%= link_to 'ホームへ', root_path, {class: "root-path"} %><br>
+          </div>
       </div>
-    </div>
-</div>
-<% else %>
-<div class = "cookposts-cansel-box">
-  <div class = "cookposts-cansel-container">
-    <div class = "cookposts-cansel-content">
-        <p class = "cansel-text">ユーザー設定完了するまで投稿できません</p>
-        <p class = "cansel-text2">みんなの投稿を閲覧することはできます。</p>
-        <%= link_to 'ユーザー設定へ', users_new_path %><br>
-        <%= link_to 'ホームへ', root_path, {class: "root-path"} %><br>
-    </div>
   </div>
-</div>
+<% else %>
+    <div class = "cookposts-cansel-box">
+        <div class = "cookposts-cansel-container">
+            <div class = "cookposts-cansel-content">
+                <p class = "cansel-text">ユーザー設定完了するまで投稿できません</p>
+                <p class = "cansel-text2">みんなの投稿を閲覧することはできます。</p>
+                <%= link_to 'ユーザー設定へ', users_new_path %><br>
+                <%= link_to 'ホームへ', root_path, {class: "root-path"} %><br>
+            </div>
+        </div>
+    </div>
 <% end %>
     

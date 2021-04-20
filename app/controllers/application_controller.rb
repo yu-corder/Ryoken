@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
     before_action :redirect_to_ryoken_setup
     private
 

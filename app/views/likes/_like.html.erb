@@ -1,6 +1,6 @@
 <% if Like.find_by(user_id: current_account.id, cookpost_id: cookpost.id) %>
-  <%= link_to like_path(cookpost.id), method: :delete, remote: true do %><i class="fas fa-star"></i><% end %>
+    <%= link_to like_path(cookpost.id), method: :delete, remote: true do %><i class="fas fa-star"></i><% end %>
 <% else %>
-  <%= link_to like_path(cookpost.id), method: :post, remote: true do %><i class="fas fa-star"></i><% end %>
+    <%= link_to like_path(cookpost.id), method: :post, remote: true do %><i class="fas fa-star"></i><% end %>
 <% end %>
 <%= cookpost.likes.length %>

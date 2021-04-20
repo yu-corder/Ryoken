@@ -17,10 +17,10 @@ class UsersController < ApplicationController
     def new
       @user = User.where(account_id: current_account.id)
       if @user[0] == nil
-        @user = User.new
-        @user.account_id = current_account.id
+          @user = User.new
+          @user.account_id = current_account.id
       else
-        redirect_to '/users'
+          redirect_to '/users'
       end
     end
     
@@ -28,35 +28,35 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       @user.account_id = current_account.id
       if @user.save
-        redirect_to '/'
+          redirect_to '/'
       else
-        render action: :new
+          render action: :new
       end
     end
 
     def edit
       @user = User.find params[:id]
       if @user.account_id != current_account.id
-        redirect_to '/users'
+          redirect_to '/users'
       end
     end
 
     def update
       @user = User.find params[:id]
       if @user.update(user_params)
-        redirect_to users_path
+          redirect_to users_path
       else
-        render action: :edit
+          render action: :edit
       end
     end
     
     def destroy
       @user = User.find(params[:id])
       if @user.account_id != current_account.id
-        redirect_to '/users'
+          redirect_to '/users'
       else
-        @user.destroy
-        redirect_to '/ryoken/setup'
+          @user.destroy
+          redirect_to '/ryoken/setup'
       end
     end
     
@@ -67,6 +67,6 @@ class UsersController < ApplicationController
     end
 
     def search_params
-      @q = Cookpost.order('created_at desc').ransack(params[:q])
+        @q = Cookpost.order('created_at desc').ransack(params[:q])
     end
 end

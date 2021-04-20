@@ -14,7 +14,7 @@ class CookpostsController < ApplicationController
         @cookposts.user_id = current_account.id
         @user = User.where(account_id: current_account.id)
         if @cookposts.save
-          redirect_to '/'
+            redirect_to '/'
         else
             render :new
         end
@@ -41,8 +41,8 @@ class CookpostsController < ApplicationController
         if @cookposts.user_id != current_account.id
             redirect_to '/users'
         else
-          @cookposts.destroy
-          redirect_to '/users'
+            @cookposts.destroy
+            redirect_to '/users'
         end
     end
 

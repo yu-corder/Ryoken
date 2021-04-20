@@ -1,24 +1,27 @@
 <% if @user.errors.any? %>
-<ul>
-  <% @user.errors.full_messages.each do |err| %>
-      <li><%= err %></li>
-  <% end %>
-</ul>
+    <ul>
+        <% @user.errors.full_messages.each do |err| %>
+            <li><%= err %></li>
+        <% end %>
+    </ul>
 <% end %>
 <%= form_with model: @user, local: true do |f| %>
+
     <div class = "field">
         <%= f.label :nickname, 'ニックネーム' %><br>
         <%= f.text_field :nickname, class: 'form-nickname' %>
     </div>
+
     <div class = "field">
         <%= f.label :profile, 'プロフィール' %><br>
         <%= f.text_area :profile, class: 'form-profile' %>
     </div>
 
     <div class = "field">
-      <%= f.hidden_field :account_id %>
+        <%= f.hidden_field :account_id %>
     </div>
+
     <div class="actions">
-      <%= f.submit "作成", class: 'actions-btn'%>
+        <%= f.submit "作成", class: 'actions-btn'%>
     </div>
 <% end %>

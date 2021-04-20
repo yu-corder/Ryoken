@@ -1,9 +1,9 @@
 <% if @cookposts.errors.any? %>
-<ul>
-  <% @cookposts.errors.full_messages.each do |err| %>
-      <li><%= err %></li>
-  <% end %>
-</ul>
+    <ul>
+        <% @cookposts.errors.full_messages.each do |err| %>
+            <li><%= err %></li>
+        <% end %>
+    </ul>
 <% end %>
 <%= form_with model: @cookposts, local: true do |f| %>
     <div class = "field">
@@ -20,24 +20,26 @@
     </div>
 
     <div id = "image-box-1">
-      <p>画像</p>
-      <div class = "item-num-0" id = "image-box__container">
-          <div class = "input-area">
-            <%= f.file_field :images, multiple: true, value:"", id:"img-file", type: 'file', style: "display:none" %>
-          </div>
-          <label id = "image-container" class = "image-container-0" for = "img-file">
-            <i class="fas fa-camera"></i>
-          </label>
+        <p>画像</p>
+        <div class = "item-num-0" id = "image-box__container">
 
-          <div class='item-image__operetion' style = "display:none">
-              <div class='item-image__operetion--delete'>削除</div>
-          </div>
-          
-      </div>
+            <div class = "input-area">
+                <%= f.file_field :images, multiple: true, value:"", id:"img-file", type: 'file', style: "display:none" %>
+            </div>
+
+            <label id = "image-container" class = "image-container-0" for = "img-file">
+                <i class="fas fa-camera"></i>
+            </label>
+
+            <div class='item-image__operetion' style = "display:none">
+                <div class='item-image__operetion--delete'>削除</div>
+            </div>
+
+        </div>
     </div>
 
     <div class = "field">
-      <%= f.hidden_field :user_id %>
+        <%= f.hidden_field :user_id %>
     </div>
 
     <p class = "cookposts-form-submit"><%= f.submit "作成", class: "actions-btn" %></p>
