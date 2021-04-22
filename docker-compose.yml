@@ -3,8 +3,8 @@ services:
   db:
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: root
+      - MYSQL_ROOT_PASSWORD
+      - MYSQL_USER
     ports:
       - "3306:3306"
     volumes:
@@ -13,10 +13,10 @@ services:
   web:
     build: .
     volumes:
-      - .:/Ryoken
-      - public-data:/Ryoken/public
-      - tmp-data:/Ryoken/tmp
-      - log-data:/Ryoken/log
+      - .:/ryoken
+      - public-data:/ryoken/public
+      - tmp-data:/ryoken/tmp
+      - log-data:/ryoken/log
     depends_on:
       - db
     environment:
@@ -28,8 +28,8 @@ services:
       context: containers/nginx
       dockerfile: Dockerfile
     volumes:
-      - public-data:/Ryoken/public
-      - tmp-data:/Ryoken/tmp
+      - public-data:/ryoken/public
+      - tmp-data:/ryoken/tmp
     ports:
       - 80:80
     depends_on:

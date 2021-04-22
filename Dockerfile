@@ -4,12 +4,12 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
     && apt-get update -qq \
     && apt-get install -y nodejs yarn \
     && apt-get install -y imagemagick \
-    && mkdir /Ryoken
-WORKDIR /Ryoken
-COPY Gemfile /Ryoken/Gemfile
-COPY Gemfile.lock /Ryoken/Gemfile.lock
+    && mkdir /ryoken
+WORKDIR /ryoken
+COPY Gemfile /ryoken/Gemfile
+COPY Gemfile.lock /ryoken/Gemfile.lock
 RUN bundle install
-COPY . /Ryoken
+COPY . /ryoken
 RUN yarn install --check-files
 RUN bundle exec rails webpacker:compile
 RUN yarn add jquery
@@ -19,4 +19,5 @@ RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 RUN mkdir -p tmp/sockets
+RUN mkdir -p tmp/pids
 CMD ["rails", "server", "-b", "0.0.0.0"]
