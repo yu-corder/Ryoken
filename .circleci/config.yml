@@ -41,6 +41,15 @@ jobs:
           gem install bundler -v 2.0.2
           bundle install --jobs=4 --retry=3 --path vendor/bundle
 
+    - run:
+        name: yarn installを実行
+        command: yarn install --cache-folder ~/.cache/yarn
+
+    - run:
+        name: webpack installを実行
+        command: bundle exec bin/webpack
+
+
     - save_cache:
         paths:
         - ./vendor/bundle
