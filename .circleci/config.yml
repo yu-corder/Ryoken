@@ -42,6 +42,10 @@ jobs:
           bundle install --jobs=4 --retry=3 --path vendor/bundle
 
     - run:
+        name: yarn Install
+        command: yarn install
+
+    - run:
         name: webpack installを実行
         command: bundle exec bin/webpack
 
