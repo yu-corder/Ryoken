@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here 
-      - image: circleci/ruby:2.6.3-node
+      - image: circleci/ruby@sha256:7b5eede6785426c86fd08328a2b98b54b7bf67cdbd7d579c9b792e11f6bea8ed
         environment:
           BUNDLER_VERSION: 2.0.1
           RAILS_ENV: test
@@ -25,16 +25,10 @@ jobs:
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/postgres:9.4
 
-    working_directory: ~/Ryoken
+    working_directory: ~/ryoken
 
     steps:
     - checkout
-
-    - run:
-        command: curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
-          echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
-          apt-get update -qq \
-          apt-get install -y nodejs yarn \
 
     - restore_cache:
         keys:
