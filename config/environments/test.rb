@@ -59,7 +59,12 @@ Rails.application.configure do
   # config.action_view.annotate_rendered_view_with_filenames = true
 
 
-  config.action_mailer.default_url_options = {host: 'localhost'}
+  username = ENV['MAIL_USERNAME']
+  pass = ENV['MAIL_PASSWORD']
+  host = ENV['MAIL_HOST']
+
+
+  config.action_mailer.default_url_options = host
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -67,8 +72,8 @@ Rails.application.configure do
     :address => "smtp.gmail.com",
     :port => 587,
     :domain => 'smtp.gmail.com',
-    :user_name => ENV['MAIL_USERNAME'],
-    :password => ENV['MAIL_PASSWORD'],
+    :user_name => username,
+    :password => pass,
     :authentication => 'login'
   }
 end
