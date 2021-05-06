@@ -1,87 +1,15 @@
-# Ruby CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-ruby/ for more details
-#
-version: 2
+version: 2.1
+orbs:
+  ruby: circleci/ruby@0.1.2 
+
 jobs:
   build:
     docker:
-      # specify the version you desire here 
-      - image: circleci/ruby:2.6.3-node-browsers
-        environment:
-          BUNDLER_VERSION: 2.0.1
-          RAILS_ENV: test
-          DB_HOST: 127.0.0.1
-          DB_USERNAME: 'root'
-          DB_PASSWORD: 'rootpass'
-
-      - image: circleci/mysql:5.7.22
-        environment:
-          MYSQL_DATABASE: 'ryoken_test'
-          MYSQL_USER: 'root'
-          MYSQL_ROOT_PASSWORD: 'rootpass'
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
-
-    working_directory: ~/ryoken
-
+      - image: circleci/ruby:2.6.3-stretch-node
+    executor: ruby/default
     steps:
-    - checkout
-
-    - run:
-        name: "Node.js と npm の更新"
-        command: |
-          curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.0-linux-x64/bin/node
-          curl https://www.npmjs.com/install.sh | sudo bash
-    - restore_cache:
-        keys:
-        - v1-dependencies-{{ checksum "Gemfile.lock" }}
-        - v1-dependencies-
-
-    - run:
-        name: install dependencies
-        command: |
-          gem install bundler -v 2.0.2
-          bundle install --jobs=4 --retry=3 --path vendor/bundle
-
-    - run:
-        name: yarn Install
-        command: yarn install
-
-    - run:
-        name: webpack installを実行
-        command: bundle exec bin/webpack
-
-
-    - save_cache:
-        paths:
-        - ./vendor/bundle
-        key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-
-    # Database setup
-    - run: mv ./config/database.yml.ci ./config/database.yml
-
-    # Database setup
-    - run:
-        name: Databasesetup
-        command: |
-           bundle exec rake db:create
-           bundle exec rake db:schema:load
-
-    # run tests!
-    - type: shell
-      command: |
-        bundle exec rspec --profile 10 \
-          --format RspecJunitFormatter \
-          --out test_results/rspec.xml \
-          --format progress \
-          $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
-
-    # collect reports
-    - store_test_results:
-        path: /tmp/test-results
-    - store_artifacts:
-        path: /tmp/test-results
-        destination: test-results
+      - checkout
+      - run:
+          name: Which bundler?
+          command: bundle -v
+      - ruby/bundle-install
