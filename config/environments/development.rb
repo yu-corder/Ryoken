@@ -75,8 +75,6 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
 
-    username = ENV['MAIL_USERNAME']
-    pass = ENV['MAIL_PASSWORD']
     host = ENV['MAIL_HOST']
 
     config.action_mailer.default_url_options = { host: host }
@@ -87,8 +85,8 @@ Rails.application.configure do
     :address => "smtp.gmail.com",
     :port => 587,
     :domain => 'smtp.gmail.com',
-    :user_name => username,
-    :password => pass,
+    :user_name => ENV['MAIL_USERNAME'],
+    :password => ENV['MAIL_PASSWORD'],
     :authentication => 'login'
   }
 end

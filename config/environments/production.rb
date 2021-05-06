@@ -118,8 +118,7 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  username = ENV['MAIL_USERNAME']
-  pass = ENV['MAIL_PASSWORD']
+  
   host = ENV['MAIL_HOST']
 
   config.action_mailer.default_url_options = { host: host }
@@ -130,8 +129,8 @@ Rails.application.configure do
     :address => "smtp.gmail.com",
     :port => 587,
     :domain => 'smtp.gmail.com',
-    :user_name => username,
-    :password => pass,
+    :user_name => ENV['MAIL_USERNAME'],
+    :password => ENV['MAIL_PASSWORD'],
     :authentication => 'login',
   }
 
