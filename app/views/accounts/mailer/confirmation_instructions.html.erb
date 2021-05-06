@@ -6,7 +6,7 @@
 
 <p>下記のリンクからアカウントメールの確認をお願いいたします。</p>
 
-<p><%= link_to 'アカウントメールの確認はこちらから', accout_confirmation_url(@resource, :confirmation_token => @token) %></p>
+<p><%= link_to 'アカウントメールの確認はこちらから', confirmation_url(@resource, :confirmation_token => @token) %></p>
 
 <p>※お問い合わせは下記のメールアドレスからお願いします。</p>
 
