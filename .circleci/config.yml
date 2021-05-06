@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here 
-      - image: circleci/ruby@sha256:2d4207a01ebdccead41d9c56e79726d3887a19015ed5002ede70c7e93872a973
+      - image: circleci/ruby:2.6.3-node-browsers
         environment:
           BUNDLER_VERSION: 2.0.1
           RAILS_ENV: test
@@ -30,6 +30,11 @@ jobs:
     steps:
     - checkout
 
+    - run:
+        name: "Node.js と npm の更新"
+        command: |
+          curl -sSL "https://nodejs.org/dist/v11.10.0/node-v11.10.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v11.10.0-linux-x64/bin/node
+          curl https://www.npmjs.com/install.sh | sudo bash
     - restore_cache:
         keys:
         - v1-dependencies-{{ checksum "Gemfile.lock" }}
