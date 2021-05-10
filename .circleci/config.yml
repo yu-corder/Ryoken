@@ -93,7 +93,7 @@ jobs:
         - add_ssh_keys:
             fingerprints:
               - d7:10:7e:94:4a:74:9f:01:e1:4c:b9:3c:b3:6b:4e:59
-        - run: ssh -p $SSH_PORT $SSH_USER@$SSH_HOST "/home/yuya/RailsRyoken/Ryoken/deploy-me.sh"
+        - run: ssh -p SSH_PORT USER_NAME@IP_ADDRES "/home/yuya/RailsRyoken/Ryoken/deploy-me.sh"
 
     workflows:
       version: 2
