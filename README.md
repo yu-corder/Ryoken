@@ -29,7 +29,12 @@
 
 ## AWS 構成図
 
-![Untitled Diagram](https://user-images.githubusercontent.com/77377366/115404747-952bcf80-a228-11eb-9316-85d5b42aa869.png)
+![Untitled Diagram](https://user-images.githubusercontent.com/77377366/117814503-5923e180-b29f-11eb-8c1b-c790b8c6971d.png)
+
+### CircleCi CI/CD
+
+* Githubへのpush時に、Rspecを自動で実行
+* Rspecが成功した場合、EC2への自動デプロイが実行
 
 ## 機能一覧
 
@@ -42,5 +47,4 @@
 
 ## 今後の計画
 
-* CircleCI CI/CD 導入
 * いいね機能だけではなくフォロー機能(Ajax), コメント機能(Ajax)の追加
