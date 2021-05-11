@@ -95,14 +95,14 @@ jobs:
             - d7:10:7e:94:4a:74:9f:01:e1:4c:b9:3c:b3:6b:4e:59
       - run: ssh ${USER_NAME}@${IP_ADDRES} "cd /home/yuya/RailsRyoken/Ryoken && /home/yuya/RailsRyoken/Ryoken/deploy-me.sh"
 
-  workflows:
-    version: 2
-    build-test-and-deploy:
-      jobs:
-        - build
-        - deploy:
-            requires:
-              - build
-            filters:
-              branches:
-                only: main
+workflows:
+  version: 2
+  build-test-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
