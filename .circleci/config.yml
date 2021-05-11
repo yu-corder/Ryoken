@@ -92,7 +92,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-            - d7:10:7e:94:4a:74:9f:01:e1:4c:b9:3c:b3:6b:4e:59
+            - ed:f2:44:cb:19:68:79:a5:63:2a:3a:f9:5c:35:a0:fd
       - run: ssh ${USER_NAME}@${IP_ADDRES} "cd /home/yuya/RailsRyoken/Ryoken && /home/yuya/RailsRyoken/Ryoken/deploy-me.sh"
 
 workflows:
