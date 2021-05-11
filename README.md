@@ -1,4 +1,5 @@
 # 料研
+[![CircleCI](https://circleci.com/gh/yu-corder/Ryoken.svg?style=svg)](https://app.circleci.com/pipelines/github/yu-corder)
 <p>
     料理の投稿サイトです。<br>
     料理のレシピを共有できます。<br>
