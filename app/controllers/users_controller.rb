@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
     def edit
       @user = User.find params[:id]
-      if @user.account_id != current_account.id
+      if @user.account_id != current_account.id || current_account.email == 'example@example.com'
           redirect_to '/users'
       end
     end
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     
     def destroy
       @user = User.find(params[:id])
-      if @user.account_id != current_account.id
+      if @user.account_id != current_account.id || current_account.email == 'example@example.com'
           redirect_to '/users'
       else
           @user.destroy
