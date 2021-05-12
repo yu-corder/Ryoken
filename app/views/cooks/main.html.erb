@@ -1,10 +1,17 @@
 <div class = "main-box">
     <div class = "main-content-box">
-        <h1 class = "main-title">料研</h1>
         <div class = "login-box">
+            <h1 class = "main-title">料研</h1>
             <%= link_to "ログイン",  new_account_session_path, {class: "login-link-1"} %>
             <%= link_to "新規登録", new_account_registration_path, {class: "login-link-2"} %>
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'guest-login'}) do |g| %>
+                <%= g.hidden_field :email, value: 'example@example.com' %>
+                    <%= g.hidden_field :password, value: 'password' %>
+                <div class="mb-3">
+                    <%= g.submit 'ゲストログイン', class: 'btn btn-warning' %>
+                </div>
+            <% end %>
+            <p class = "main-text">料理をシェアしよう。</p>
         </div>
-        <p class = "main-text">料理をシェアしよう。</p>
     </div>
 </div>
