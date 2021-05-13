@@ -27,6 +27,7 @@
 * Docker-compose 1.27.4
 * HTML CSS
 * JavaScript
+* Circle Ci
 
 ## AWS 構成図
 
