@@ -21,3 +21,12 @@
         <div class = "paginate"><%= paginate @cookposts %></div>
     </div>
 </div>
+<script>
+    $(document).on('turbolinks:load', function() {
+        $(function() {
+            $('.fa-times-circle').on('click', function() {
+                $('#message').addClass('hide-message');
+            })
+        });
+    });
+</script>
