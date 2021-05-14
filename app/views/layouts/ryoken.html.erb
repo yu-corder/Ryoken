@@ -38,6 +38,9 @@
                 <%= f.submit %>
             <% end %>
         </div>
+        <% flash.each do |message_type, message| %>
+            <p class = "message" id = "message"><%= message %><i class="far fa-times-circle"></i></p>
+        <% end %>
         <%= yield %>
     </body>
 </html>
