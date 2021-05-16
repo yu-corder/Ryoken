@@ -1,0 +1,7 @@
+<%= form_with model: @comments, local: true do |f| %>
+    <div class = "content-field">
+        <%= f.label :content, 'コメント' %><br>
+        <%= f.text_field :content, class: 'content'%>
+    </div>
+    <p class = "cookposts-form-submit"><%= f.submit "作成", class: "actions-btn" %></p>
+<% end %>

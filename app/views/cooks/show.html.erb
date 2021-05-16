@@ -26,6 +26,19 @@
             </p>
         </div>
     <% end %>
+    <div class = "comment-area">
+        <% if @comments[0] != nil %>
+            <% @comments.each do |comment| %>
+                <p><%= comment.content %></p>
+                <p><%= comment.user.nickname %></p>
+            <% end %>
+        <% else %>
+                <p class = "comment-text">まだ投稿がありません</p>
+        <% end %>
+    </div>
+    <div>
+        <%= render partial: 'comments/form', locals: {@cookposts: @cookposts} %>
+    </div>
 </div>
 <script>
 

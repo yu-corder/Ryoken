@@ -8,7 +8,8 @@ class CooksController < ApplicationController
     end
 
     def show
-        @cookposts = Cookpost.where(id: params[:id]) 
+        @cookposts = Cookpost.where(id: params[:id])
+        @comments = Comment.where(cookpost_id: params[:id]) 
         @results = @q.result
     end
 
