@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   resources :likes, only:[:destroy]
 
   post 'likes/:id', to: 'likes#create'
+
+  resources :comments, only:[:create]
   
   get 'show/:id', to: 'cooks#show'
 

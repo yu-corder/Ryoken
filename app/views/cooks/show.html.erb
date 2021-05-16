@@ -17,15 +17,32 @@
 
             <h3 class = "cooking-recipe-title">レシピ</h3>
             <%= simple_format(cookpost.cooking_recipe, class: 'cooking-recipe') %>
-
+            
             <a href = "/users/show/<%= cookpost.user.id %>">
                 <p class = "cooking-nickname">by <%= cookpost.user.nickname %></p>
             </a>
-            <p id = "likes_buttons_<%= cookpost.id %>">
+            <p id = "likes_buttons_<%= cookpost.id %>" style = "display:inline-block;">
                 <%= render partial: 'likes/like', locals: {cookpost: cookpost} %>
             </p>
+            <i class="far fa-comment"></i><p class = "comment-number"><%= cookpost.comments.count %></p>
+        </div>
+        <div class = "comment-area">
+            <h2 class = "commet-title">コメント</h2>
+            <% if cookpost.comments.count == 0 %>
+                <p class = "comment-text">まだ投稿がありません</p>
+            <% else %>
+                <% cookpost.comments.each do |comment| %>
+                    <p class = "comment-text"><a href = "/users/show/<%= comment.user.id %>">@<%= comment.user.nickname %></a></p>
+                    <%= simple_format(comment.content, class: 'comment-space') %>
+                    <hr>
+                <% end %>
+            <% end %>
+        </div>
+        <div>
+            <%= render partial: 'comments/form', locals: {cookpost: cookpost} %>
         </div>
     <% end %>
+    
 </div>
 <script>
 

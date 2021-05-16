@@ -10,9 +10,10 @@
                         <% end %>
                     </p>
                 </a>
-                <p id = "likes_buttons_<%= like.cookpost.id %>">
+                <p id = "likes_buttons_<%= like.cookpost.id %>" style = "display:inline-block;">
                     <%= render partial: 'likes/like', locals: {cookpost: like.cookpost} %>
                 </p>
+                <i class="far fa-comment"></i><p class = "comment-number"><%= like.cookpost.comments.count %></p>
                 <a href = "users/show/<%= like.cookpost.user.id %>">
                     <p class = "cooking-nickname">by <%= like.cookpost.user.nickname %></p>
             　　 </a>

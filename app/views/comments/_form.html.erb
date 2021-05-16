@@ -1,0 +1,10 @@
+<%= form_with model: @comments, local: true do |f| %>
+    <div class = "content-field">
+        <%= f.label :content, 'コメントをする' %><br>
+        <%= f.text_area :content, class: 'content'%>
+    </div>
+
+    <%= f.hidden_field :user_id, {value: current_account.id} %>
+    <%= f.hidden_field :cookpost_id, {value: cookpost.id} %>
+    <p class = "comment-submit"><%= f.submit "作成", class: "actions-btn" %></p>
+<% end %>

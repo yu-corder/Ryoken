@@ -14,9 +14,10 @@
                     <p class = "cooking-nickname">by <%= result.user.nickname %></p>
                 </a>
 
-                <p id = "likes_buttons_<%= result.id %>">
+                <p id = "likes_buttons_<%= result.id %>" style = "display:inline-block;">
                     <%= render partial: 'likes/like', locals: {cookpost: result} %>
                 </p>
+                <i class="far fa-comment"></i><p class = "comment-number"><%= result.comments.count %></p>
             </section>
         <% end %>
         <div class = "navigate">
