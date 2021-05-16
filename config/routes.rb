@@ -36,7 +36,7 @@ Rails.application.routes.draw do
 
   post 'likes/:id', to: 'likes#create'
 
-  post 'comments/:id', to: 'comments#create'
+  resources :comments, only:[:create]
   
   get 'show/:id', to: 'cooks#show'
 

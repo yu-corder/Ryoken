@@ -49,9 +49,10 @@
                 <%= simple_format(cookpost.cooking_recipe, class: 'cooking-recipe') %>
 
 
-                <p>
+                <p style = "display:inline-block;">
                     <i class="fas fa-star"></i> <%= cookpost.likes.length %>
                 </p>
+                <a href = "show/<%= cookpost.id %>"><i class="far fa-comment"></i><p class = "comment-number"><%= cookpost.comments.count %></p></a>
                 <hr>
             </div>
         <% end %>
