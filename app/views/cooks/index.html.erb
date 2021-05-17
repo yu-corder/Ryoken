@@ -1,27 +1,38 @@
 <div class = "cooks-container">
-    <% @cookposts.each do |cookpost| %>
-        <div class = "section-cookpost">
-            <a href = "/show/<%= cookpost.id %>">
-                <h2 class = "cooking-name"><%= cookpost.cooking_name %></h2>
-                <p>
-                    <% cookpost.images.each do |image| %>
-                        <%= image_tag image.to_s, width: '30%', height: '30%' %>
-                    <% end %>
+    <div class = "cooks-box">
+        <% @cookposts.each do |cookpost| %>
+            <div class = "section-cookpost">
+                <a href = "/show/<%= cookpost.id %>">
+                    <h2 class = "cooking-name"><%= cookpost.cooking_name %></h2>
+                    <p>
+                        <% cookpost.images.each do |image| %>
+                            <%= image_tag image.to_s, width: '30%', height: '30%' %>
+                        <% end %>
+                    </p>
+                </a>
+                <a href = "users/show/<%= cookpost.user.id %>">
+                    <p class = "cooking-nickname">by <%= cookpost.user.nickname %></p>
+                </a>
+                <p id = "likes_buttons_<%= cookpost.id %>" style = "display:inline-block;">
+                    <%= render partial: 'likes/like', locals: {cookpost: cookpost} %>
                 </p>
-            </a>
-            <a href = "users/show/<%= cookpost.user.id %>">
-                <p class = "cooking-nickname">by <%= cookpost.user.nickname %></p>
-            </a>
-            <p id = "likes_buttons_<%= cookpost.id %>" style = "display:inline-block;">
-                <%= render partial: 'likes/like', locals: {cookpost: cookpost} %>
-            </p>
-            <i class="far fa-comment"></i><p class = "comment-number"><%= cookpost.comments.count %></p>
-        </div>
-    <% end %>
-    <div class = "navigate">
-        <div class = "paginate"><%= paginate @cookposts %></div>
+                <i class="far fa-comment"></i><p class = "comment-number"><%= cookpost.comments.count %></p>
+            </div>
+        <% end %>
     </div>
 </div>
+
+<%= paginate @cookposts %>
+<% if @cookposts.size > 10 %>
+    <div class = "page-load-status">
+        <p class = "infinite-scroll-request">
+            ...読み込み中
+        </p>
+        <p class = "infinite-scroll-error">
+            読み込みできませんでした。
+        </p>
+    </div>
+<% end %>
 <script>
     $(document).on('turbolinks:load', function() {
         $(function() {
@@ -29,5 +40,15 @@
                 $('#message').addClass('hide-message');
             })
         });
+        if ($("nav.pagination a[rel=next]").length){
+            $(".cooks-container").infiniteScroll({
+              path: "nav.pagination a[rel=next]",
+              append: ".cooks-box",
+              prefill: false,
+              history: false,
+              hideNav: "nav.pagination",
+              status: '.page-load-status'
+            })
+        }
     });
 </script>

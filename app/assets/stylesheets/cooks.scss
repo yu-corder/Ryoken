@@ -52,6 +52,11 @@ a:hover {
 .hide-message {
     display: none;
 }
+.page-load-status {
+    width: 70%;
+    margin: 0px auto;
+    padding-top: 30px;
+}
 
 @media screen and (min-width: 1024px) {
     /* ryoken.html.erb */
