@@ -23,14 +23,16 @@
 </div>
 
 <%= paginate @cookposts %>
-<div class = "page-load-status">
-    <p class = "infinite-scroll-request">
-        ...読み込み中
-    </p>
-    <p class = "infinite-scroll-error">
-        読み込みできませんでした。
-    </p>
-</div>
+<% if @cookposts.size > 10 %>
+    <div class = "page-load-status">
+        <p class = "infinite-scroll-request">
+            ...読み込み中
+        </p>
+        <p class = "infinite-scroll-error">
+            読み込みできませんでした。
+        </p>
+    </div>
+<% end %>
 <script>
     $(document).on('turbolinks:load', function() {
         $(function() {

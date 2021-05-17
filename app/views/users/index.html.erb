@@ -23,42 +23,52 @@
 
         <% end %>
         <% if @cookposts[0] != nil %>
-        <% @cookposts.each do |cookpost| %>
-            <div class = "section-cookpost-users">
-                <h2 class = "my-cooking-name"><%= cookpost.cooking_name %></h2>
+        <div class = "cooks-box">
+            <% @cookposts.each do |cookpost| %>
+                <div class = "section-cookpost-users">
+                    <h2 class = "my-cooking-name"><%= cookpost.cooking_name %></h2>
 
-                <ul class = "user-menu-2">
-                    <li class = "user-menu-list-2">設定<i class="fas fa-sort-down user-menu-fa-down-2"></i></li>
-                    <li class = "user-menu-hide-2"><a href = "/cookposts/<%= cookpost.id %>">編集</a></li>
-                    <li class = "user-menu-hide-2"><a href = "javascript:deldelData(<%= cookpost.id %>);">削除</a></li>
-                </ul>
+                    <ul class = "user-menu-2">
+                        <li class = "user-menu-list-2">設定<i class="fas fa-sort-down user-menu-fa-down-2"></i></li>
+                        <li class = "user-menu-hide-2"><a href = "/cookposts/<%= cookpost.id %>">編集</a></li>
+                        <li class = "user-menu-hide-2"><a href = "javascript:deldelData(<%= cookpost.id %>);">削除</a></li>
+                    </ul>
 
-                <div class = "modal-wrapper">
-                    <img src="" alt="" class="modal-image">
+                    <div class = "modal-wrapper">
+                        <img src="" alt="" class="modal-image">
+                    </div>
+
+                    <div class = "wrapper">
+                        <% cookpost.images.each do |image| %>
+                            <%= image_tag image.to_s, width: '30%', height: '30%', class: "image", data: { src: image.to_s} %>
+                        <% end %>
+                    </div>
+                    <h3 class = "cooking-ingredients-title">材料</h3>
+                    <%= simple_format(cookpost.ingredients, class: 'cooking-ingredients') %>
+
+                    <h3 class = "cooking-recipe-title">レシピ</h3>
+                    <%= simple_format(cookpost.cooking_recipe, class: 'cooking-recipe') %>
+
+
+                    <p style = "display:inline-block;">
+                        <i class="fas fa-star"></i> <%= cookpost.likes.length %>
+                    </p>
+                    <a href = "show/<%= cookpost.id %>"><i class="far fa-comment"></i><p class = "comment-number"><%= cookpost.comments.count %></p></a>
+                    <hr>
                 </div>
-
-                <div class = "wrapper">
-                    <% cookpost.images.each do |image| %>
-                        <%= image_tag image.to_s, width: '30%', height: '30%', class: "image", data: { src: image.to_s} %>
-                    <% end %>
-                </div>
-                <h3 class = "cooking-ingredients-title">材料</h3>
-                <%= simple_format(cookpost.ingredients, class: 'cooking-ingredients') %>
-
-                <h3 class = "cooking-recipe-title">レシピ</h3>
-                <%= simple_format(cookpost.cooking_recipe, class: 'cooking-recipe') %>
-
-
-                <p style = "display:inline-block;">
-                    <i class="fas fa-star"></i> <%= cookpost.likes.length %>
+            <% end %>
+        </div>
+        <%= paginate @cookposts %>
+        <% if @cookposts.size > 10 %>
+            <div class = "page-load-status">
+                <p class = "infinite-scroll-request">
+                    ...読み込み中
                 </p>
-                <a href = "show/<%= cookpost.id %>"><i class="far fa-comment"></i><p class = "comment-number"><%= cookpost.comments.count %></p></a>
-                <hr>
+                <p class = "infinite-scroll-error">
+                    読み込みできませんでした。
+                </p>
             </div>
         <% end %>
-        <div class = "navigate">
-            <div class = "paginate"><%= paginate @cookposts %></div>
-        </div>
         <% else %>
             <p class = "my-post">まだ投稿がありません</p>
         <% end %>
@@ -117,5 +127,15 @@
                 $('#message').addClass('hide-message');
             })
         });
+        if ($("nav.pagination a[rel=next]").length){
+            $(".cooks-container").infiniteScroll({
+              path: "nav.pagination a[rel=next]",
+              append: ".cooks-box",
+              prefill: false,
+              history: false,
+              hideNav: "nav.pagination",
+              status: '.page-load-status'
+            })
+        }
     });
 </script>
