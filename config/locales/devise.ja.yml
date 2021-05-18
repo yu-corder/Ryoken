@@ -15,7 +15,9 @@ ja:
           attributes:
             nickname:
               blank: "が入力されていません。"
-              taken: "は既に使用されています。"   
+              taken: "は既に使用されています。"
+              too_long: "は10文字以内でお願いします。"
+            profile: "は40文字以内でお願いします。"
         account:
           attributes:
             email:
@@ -39,6 +41,7 @@ ja:
         cooking_recipe: "レシピ"
       user:
         nickname: "ニックネーム"
+        profile: "プロフィール"
       account:
         current_password: "現在のパスワード"
         email: "メールアドレス"

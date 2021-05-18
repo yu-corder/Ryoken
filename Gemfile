@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
+#NGワード
+gem 'obscenity'
 #環境変数
 gem 'dotenv-rails'
 #検索機能
