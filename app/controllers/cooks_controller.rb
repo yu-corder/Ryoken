@@ -10,6 +10,7 @@ class CooksController < ApplicationController
     def show
         @cookposts = Cookpost.where(id: params[:id])
         @comments = Comment.new
+        @comments_view = Comment.where(cookpost_id: params[:id]).page params[:page]
         @results = @q.result
     end
 
