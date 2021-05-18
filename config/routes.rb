@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   resources :comments, only:[:create]
   
   get 'show/:id', to: 'cooks#show'
+  get 'show/:id/:page', to: 'cooks#show'
 
   get 'mylikes', to: 'likes#index'
   get 'mylikes/:page', to: 'likes#index'
