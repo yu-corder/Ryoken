@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    sequence(:nickname) { |n| "TEST#{n}NICKNAME"}
+    sequence(:nickname) { |n| "#{n}NAME"}
     sequence(:profile) { |n| "TEST#{n}PROFILE"}
     account
   end
