@@ -34,6 +34,8 @@ ja:
               invalid: "は有効でありません。"
             password_confirmation: 
               confirmation: "(確認用)がパスワードとあっていません。"
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}"
     attributes:
       cookpost:
         cooking_name: "料理名"
