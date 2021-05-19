@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
-#NGワード
-gem 'obscenity'
 #環境変数
 gem 'dotenv-rails'
 #検索機能
@@ -68,6 +66,10 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
   gem 'rspec_junit_formatter'
+end
+
+group :production do
+  gem 'obscenity'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
