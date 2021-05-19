@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
 
     describe 'バリデーション' do
         it 'nicknameの値が設定されていれば、ok' do
-            expect(@user.valid?).to eq(true
+            expect(@user.valid?).to eq(true)
         end
 
         it 'nicknameが空だとNG' do
@@ -19,7 +19,5 @@ RSpec.describe User, type: :model do
             @user.profile= ''
             expect(@user.valid?).to eq(true)
         end
-
-        
     end
 end
