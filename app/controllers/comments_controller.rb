@@ -1,15 +1,28 @@
 class CommentsController < ApplicationController
     
     def create
+        @cookposts = Cookpost.where(id: params[:id])
+        @comments_view = Comment.where(cookpost_id: params[:id]).page params[:page]
         @comments = Comment.new(comment_params)
         @user = User.where(account_id: current_account.id)
         if @comments.save
             redirect_to cook_path(id: @comments.cookpost_id)
         else
-            render :show
+            flash[:notice] = 'エラーが発生しました。NGワードが含まれている場合はコメントできません。'
+            redirect_to cook_path(id: @comments.cookpost_id)
         end
     end
 
+    def destroy
+        @comments = Comment.find(params[:id])
+        if @comments.user_id != current_account.id
+            redirect_to cook_path(id: @comments.cookpost_id)
+        else
+            @comments.destroy
+            flash[:notice] = 'コメント削除しました。'
+            redirect_to cook_path(id: @comments.cookpost_id)
+        end
+    end
 
     private
 

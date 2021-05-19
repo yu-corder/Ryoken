@@ -35,7 +35,14 @@
                     <% @comments_view.each do |comment| %>
                         <div class = "comment-container">
                             <p class = "comment-text"><a href = "/users/show/<%= comment.user.id %>">@<%= comment.user.nickname %></a></p>
-                            <%= simple_format(comment.content, class: 'comment-space') %>
+                            <div class = "comment-container-box">
+                                <%= simple_format(comment.content, class: 'comment-space') %>
+                                <% if comment.user_id == current_account.id %>
+                                    <%= link_to comment_path(comment.id), :method => :delete do %>
+                                        <i class="fas fa-trash-alt"></i> 
+                                    <% end %>
+                                <% end %>
+                            </div>
                             <hr>
                         </div>
                     <% end %>
@@ -74,6 +81,9 @@
                     this.classList.remove('show');
                     $(this).children("img").removeClass('show');
                 }
+            })
+            $('.fa-times-circle').on('click', function() {
+                $('#message').addClass('hide-message');
             })
         });
         if ($("nav.pagination a[rel=next]").length){
