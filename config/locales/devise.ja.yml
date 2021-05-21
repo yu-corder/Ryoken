@@ -10,6 +10,8 @@ ja:
               blank: "が入力されていません。"
             cooking_recipe:
               blank: "が入力されていません。"
+            user:
+              required: "は必須です。"
 
         user:
           attributes:
@@ -41,6 +43,7 @@ ja:
         cooking_name: "料理名"
         ingredients: "材料"
         cooking_recipe: "レシピ"
+        user: "ユーザー"
       user:
         nickname: "ニックネーム"
         profile: "プロフィール"

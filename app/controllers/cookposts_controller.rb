@@ -4,7 +4,6 @@ class CookpostsController < ApplicationController
 
     def new
         @cookposts = Cookpost.new
-        @cookposts.user_id = current_account.id
         @user = User.where(account_id: current_account.id)
     end
 
