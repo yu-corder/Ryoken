@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
             if @comments.save
                 redirect_to cook_path(id: @comments.cookpost_id)
             else
-                flash[:notice] = 'エラーが発生しました。NGワードが含まれている場合はコメントできません。'
+                flash[:notice] = 'エラーが発生しました。NGワードが含まれている場合や文字が入力されてない場合はコメントできません。'
                 redirect_to cook_path(id: @comments.cookpost_id)
             end
         end
