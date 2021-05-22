@@ -466,12 +466,12 @@ a:hover {
 @media screen and (max-width: 1023px) {
 
     html {
-        height: auto;
+        height: 100%;
         width: 100%;
         padding: 0;
     }
     body {
-        height: auto;
+        height: 100%;
         width: 100%;
         margin: 0;
         padding: 0;
@@ -703,35 +703,46 @@ a:hover {
     }
 
     /* users.new.html.erb edit.html.erb */
-
+    .user-new-text {
+        font-size: 50px;
+    }
+    label {
+        font-size: 40px;
+    }
     .form-nickname {
-        width: auto;
-        height: 30px;
-        margin-top: 20px;
+        width: 80%;
+        height: 50px;
+        margin-top: 50px;
     }
     .form-profile {
-        width: auto;
-        height: 80px;
-        margin-top: 20px;
+        width: 80%;
+        height: 100px;
+        margin-top: 50px;
     }
     .user-form-box {
-        height: 100%;
+        min-height: 100vh;
         width: 100%;
         background-image: url('mediterranean-cuisine-2378758_1920.jpg');
         background-size:cover;
     }
     .user-form-container {
-        height: 100%;
+        min-height: 100vh;
         width: 100%;
         margin: 0 auto;
         background-color: rgba(240, 228, 215, 0.5);
     }
     .user-form-content {
         width: 50%;
-        padding-top: 100px;
+        padding-top: 45%;
         margin: 0px auto;
     }
-
+    .user-form {
+        margin-top: 80px;
+    }
+    .actions {
+        margin-top: 70px;
+        padding-bottom: 80px;
+    }
     /* users index.html.erb*/
     .section-cookpost-users {
         margin: 30px 0;
