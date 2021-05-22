@@ -8,12 +8,12 @@
 <%= form_with model: @user, class: 'user-form', local: true do |f| %>
 
     <div class = "field">
-        <%= f.label :nickname, 'ニックネーム' %><br>
+        <%= f.label :nickname, 'ニックネーム', {class: 'user-form-label'} %><br>
         <%= f.text_field :nickname, class: 'form-nickname' %>
     </div>
 
     <div class = "field">
-        <%= f.label :profile, 'プロフィール' %><br>
+        <%= f.label :profile, 'プロフィール', {class: 'user-form-label'} %><br>
         <%= f.text_area :profile, class: 'form-profile' %>
     </div>
 

@@ -579,7 +579,7 @@ a:hover {
     /* set-up */
 
     .main-box {
-        height: auto;
+        min-height: 100vh;
         width: 100%;
         background-image: url('mediterranean-cuisine-2378758_1920.jpg');
         background-size:cover;
@@ -594,40 +594,38 @@ a:hover {
         height: auto;
     }
     .main-title {
-        font-size: 150px;
         margin-bottom: 100px;
         padding: 0px;
         color: #f0e4d7;
+        font-size: 15rem;
+        white-space: nowrap;
     }
     .main-text {
         font-size: 50px;
         color: #f0e4d7;
         margin-top: 50px;
         margin-left: 30px;
-        padding-bottom: 830px;
         text-align: center;
+        padding-bottom: 200px;
     }
     
-    .main-title {
-        font-size: 15rem;
-        white-space: nowrap;
-    }
     .login-link-1, .login-link-2 {
-        display: inline-block;
+        display: block;
         text-decoration: none;
-        padding: 20px;
-        border-radius: 10%;
+        width: 250px;
+        height: 150px;
+        line-height: 150px;
+        border-radius: 20%;
         color: #fff;
-        font-size:25px;
+        font-size:50px;
+        margin: 0 auto;
     }
     .login-link-1 {
         background-color: #f5c0c0;
-        margin-right: 20px;
-
     }
     .login-link-2 {
         background-color: #ff7171;
-        margin-left: 20px;
+        margin-top: 50px;
     }
     .login-link-1:hover, .login-link-2:hover {
         background: #9fd8df;
@@ -635,37 +633,50 @@ a:hover {
     
     .guest-login {
         text-align: center;
-        margin-top: 20px;
+        margin-top: 50px;
+    }
+    .btn-warning {
+        display: inline-block;
+        height: 150px;
+        line-height: 150px;
+        width: 250px;
+        font-size: 30px;
+        border-radius: 20%;
     }
 
     /* login */
     .login-container-box {
-        height: auto;
+        min-height: 100vh;
         width: 100%;
         background-image: url('mediterranean-cuisine-2378758_1920.jpg');
         background-size:cover;
     }
     .login-container {
-        height: auto;
+        min-height: 100vh;
         width: 100%;
         margin: 0 auto;
         background-color: rgba(240, 228, 215, 0.5);
     }
     .login-form-box {
-        height: auto;
+        height: 100%;
         width: 50%;
         padding-top: 100px;
         margin: 0px auto;
     }
     .login-title {
         margin-top: 0;
+        font-size: 50px;
+    }
+    .login-form-label {
+        font-size: 25px;
     }
     .field {
-        margin-bottom: 20px;
+        margin-bottom: 50px;
     }
     .text-field {
-        width: auto;
-        height: 20px;
+        margin-top: 30px;
+        width: 100%;
+        height: 50px;
     }
     .actions {
         margin-bottom: 20px;
@@ -681,9 +692,6 @@ a:hover {
     .actions-btn:hover {
         background: #9fd8df;
     }
-    .login-form-link {
-        margin-bottom: 100px;
-    }
     .actions-btn-2 {
         background-color: #ff7171;
         width: 80px;
@@ -695,18 +703,23 @@ a:hover {
     .actions-btn-2:hover {
         background: #9fd8df;
     }
+    .login-form-link {
+        display: block;
+        margin-bottom: 30px;
+    }
     .login-form {
         height: 100%;
     }
     .sign-up-link {
-        height: 500px;
+        margin-bottom: 100px;
+        padding-bottom: 200px;
     }
 
     /* users.new.html.erb edit.html.erb */
     .user-new-text {
         font-size: 50px;
     }
-    label {
+    .user-form-label {
         font-size: 40px;
     }
     .form-nickname {
