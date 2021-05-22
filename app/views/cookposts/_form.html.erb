@@ -5,22 +5,22 @@
         <% end %>
     </ul>
 <% end %>
-<%= form_with model: @cookposts, local: true do |f| %>
+<%= form_with model: @cookposts, class: 'cookposts-form', local: true do |f| %>
     <div class = "field">
-        <%= f.label :cooking_name, '料理名' %><br>
+        <%= f.label :cooking_name, '料理名', {class: 'cookpost-form-label'} %><br>
         <%= f.text_field :cooking_name, class: 'form-cooking-name'%>
     </div>
     <div class = "field">
-        <%= f.label :ingredients, '材料' %><br>
+        <%= f.label :ingredients, '材料', {class: 'cookpost-form-label'} %><br>
         <%= f.text_area :ingredients, class: 'form-ingredients' %>
     </div>
     <div class = "field">
-        <%= f.label :cooking_recipe, 'レシピ' %><br>
+        <%= f.label :cooking_recipe, 'レシピ', {class: 'cookpost-form-label'} %><br>
         <%= f.text_area :cooking_recipe, class: 'form-cooking-recipe'%>
     </div>
 
     <div id = "image-box-1">
-        <p>画像</p>
+        <p class = "cookpost-form-label">画像</p>
         <div class = "item-num-0" id = "image-box__container">
 
             <div class = "input-area">

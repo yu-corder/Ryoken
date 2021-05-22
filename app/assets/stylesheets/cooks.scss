@@ -762,6 +762,57 @@ a:hover {
         padding-bottom: 80px;
     }
     /* users index.html.erb*/
+    .user-menu-hide {
+        display: none;
+        width: 150px;
+        height: 80px;
+        line-height: 80px;
+        padding: 10px;
+        border: 1px solid rgba(51, 51, 51, 0.5);
+    }
+    .user-menu {
+        display: inline-block;
+        text-align: center;
+        vertical-align: top;
+        margin-bottom: 30px;
+        list-style: none;
+    }
+    .user-menu-list {
+        width: 150px;
+        height: 80px;
+        line-height: 80px;
+        margin-top: 10px;
+        font-size: 30px;
+        padding: 0 20px;
+        border: 1px solid rgba(51, 51, 51, 0.5);
+    }
+    .user-menu-hide-2 {
+        width: 150px;
+        height: 80px;
+        line-height: 80px;
+        display: none;
+        padding: 10px;
+        border: 1px solid rgba(51, 51, 51, 0.5);
+    }
+    .user-menu-2 {
+        display: inline-block;
+        text-align: center;
+        vertical-align: top;
+        margin-bottom: 30px;
+        list-style: none;
+    }
+    .user-menu-list-2 {
+        width: 150px;
+        height: 80px;
+        line-height: 80px;
+        margin-top: 10px;
+        font-size: 30px;
+        padding: 0 20px;
+        border: 1px solid rgba(51, 51, 51, 0.5);
+    }
+    .my-user-list {
+        font-size: 25px;
+    }
     .section-cookpost-users {
         margin: 30px 0;
     }
@@ -879,25 +930,40 @@ a:hover {
 
     /* cookpost _form.html.erb */
     .root-path {
+        display: block;
         margin-top: 70px;
         font-size: 30px;
     }
+    .root-path-2 {
+        display: block;
+        margin-top: 70px;
+        padding-bottom: 30px;
+        font-size: 30px;
+    }
+    .cookposts-form {
+        margin-top: 50px;
+    }
     .cookposts-form-box {
-        height: auto;
+        min-height: 100vh;
         width: 100%;
         background-image: url('mediterranean-cuisine-2378758_1920.jpg');
         background-size:cover;
     }
     .cookposts-form-container {
+        height: 100%;
         width: 100%;
         margin: 0 auto;
         background-color: rgba(240, 228, 215, 0.5);
     }
     .cookposts-form-content {
+        height: 100%;
         width: 50%;
         padding-top: 100px;
         padding-bottom: 30px;
         margin: 0px auto;
+    }
+    .cookposts-title {
+        font-size: 50px;
     }
     .form-cooking-name {
         width: 300px;
@@ -913,6 +979,9 @@ a:hover {
         width: 300px;
         height: 500px;
         margin-top: 20px;
+    }
+    .cookpost-form-label {
+        font-size: 35px;
     }
     .img_field {
         margin-top: 20px;
