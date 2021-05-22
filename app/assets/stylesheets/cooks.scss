@@ -665,7 +665,7 @@ a:hover {
     }
     .login-title {
         margin-top: 0;
-        font-size: 40px;
+        font-size: 30px;
     }
     .login-form-label {
         font-size: 25px;
@@ -689,7 +689,7 @@ a:hover {
         border: #f5c0c0 solid 1px;
         color: #fff;
         line-height: 90px;
-        font-size:30px;
+        font-size:20px;
     }
     .actions-btn:hover {
         background: #9fd8df;
@@ -702,7 +702,7 @@ a:hover {
         border: #ff7171 solid 1px;
         color: #fff;
         line-height: 90px;
-        font-size:30px;
+        font-size:20px;
     }
     .actions-btn-2:hover {
         background: #9fd8df;
@@ -823,6 +823,21 @@ a:hover {
     }
     .cooking-recipe {
         font-size: 30px;
+    }
+    .comment-space {
+        margin-left: 20px;
+        font-size: 25px;
+    }
+    .comment-text {
+        margin-top: 50px;
+        font-size: 30px;
+        display: block;
+    }
+    .fa-trash-alt {
+        font-size: 30px;
+    }
+    .comment-container-box {
+        margin-top: 30px;
     }
 
     /* cookposts.index.html.erb */
@@ -1094,6 +1109,7 @@ a:hover {
 }
 .comment-text {
     margin-top: 30px;
+    display: block;
 }
 .comment-number {
     display: inline-block;

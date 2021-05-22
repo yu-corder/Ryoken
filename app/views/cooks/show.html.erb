@@ -34,7 +34,7 @@
                 <div class = "comment-box">
                     <% @comments_view.each do |comment| %>
                         <div class = "comment-container">
-                            <p class = "comment-text"><a href = "/users/show/<%= comment.user.id %>">@<%= comment.user.nickname %></a></p>
+                            <a href = "/users/show/<%= comment.user.id %>" class = "comment-text">@<%= comment.user.nickname %></a>
                             <div class = "comment-container-box">
                                 <%= simple_format(comment.content, class: 'comment-space') %>
                                 <% if comment.user_id == current_account.id %>
