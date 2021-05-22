@@ -665,7 +665,7 @@ a:hover {
     }
     .login-title {
         margin-top: 0;
-        font-size: 50px;
+        font-size: 40px;
     }
     .login-form-label {
         font-size: 25px;
@@ -676,36 +676,41 @@ a:hover {
     .text-field {
         margin-top: 30px;
         width: 100%;
-        height: 50px;
+        height: 30px;
     }
     .actions {
         margin-bottom: 20px;
     }
     .actions-btn {
         background-color: #f5c0c0;
-        width: 80px;
-        height: 40px;
-        border: solid 0.3px #f5c0c0;
-        border-radius: 10%;
+        width: 150px;
+        height: 90px;
+        border-radius: 20%;
+        border: #f5c0c0 solid 1px;
         color: #fff;
+        line-height: 90px;
+        font-size:30px;
     }
     .actions-btn:hover {
         background: #9fd8df;
     }
     .actions-btn-2 {
         background-color: #ff7171;
-        width: 80px;
-        height: 40px;
-        border: solid 0.3px  #ff7171;
-        border-radius: 10%;
+        width: 150px;
+        height: 90px;
+        border-radius: 20%;
+        border: #ff7171 solid 1px;
         color: #fff;
+        line-height: 90px;
+        font-size:30px;
     }
     .actions-btn-2:hover {
         background: #9fd8df;
     }
     .login-form-link {
         display: block;
-        margin-bottom: 30px;
+        font-size: 25px;
+        margin-bottom: 15px;
     }
     .login-form {
         height: 100%;

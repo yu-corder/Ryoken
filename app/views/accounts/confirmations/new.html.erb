@@ -1,14 +1,14 @@
 <div class = "login-container-box">
     <div class = "login-container">
         <div class = "login-form-box">
-            <h2>メール再送信</h2>
+            <h2 class = "login-title">メール再送信</h2>
             <p class = "mail-text">※メールが届くまで時間がかかることがあります。</p>
             <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
                 <%= render "devise/shared/error_messages", resource: resource %>
 
                 <div class="field">
-                    <%= f.label :メールアドレス %><br />
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+                    <%= f.label :メールアドレス, {class: 'login-form-label'} %><br />
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'text-field' %>
                 </div>
 
                 <div class="actions">
