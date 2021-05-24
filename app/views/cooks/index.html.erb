@@ -33,22 +33,3 @@
         </p>
     </div>
 <% end %>
-<script>
-    $(document).on('turbolinks:load', function() {
-        $(function() {
-            $('.fa-times-circle').on('click', function() {
-                $('#message').addClass('hide-message');
-            })
-        });
-        if ($("nav.pagination a[rel=next]").length){
-            $(".cooks-container").infiniteScroll({
-              path: "nav.pagination a[rel=next]",
-              append: ".cooks-box",
-              prefill: false,
-              history: false,
-              hideNav: "nav.pagination",
-              status: '.page-load-status'
-            })
-        }
-    });
-</script>

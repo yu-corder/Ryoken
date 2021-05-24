@@ -66,36 +66,3 @@
     <% end %>
     
 </div>
-<script>
-
-    $(document).on('turbolinks:load', function() {
-        $(function() {
-            $('.image').on('click', function() {
-                    $(this).parent("div").prev("div").addClass('show');
-                    $(this).parent("div").prev("div").children("img").addClass('show');
-                    var imageSrc = $(this).attr('src');
-                    $(this).parent("div").prev("div").children("img").attr('src', imageSrc);
-            });
-            $('.modal-wrapper').on('click', function(){
-                if (this.classList.contains('show')) {
-                    this.classList.remove('show');
-                    $(this).children("img").removeClass('show');
-                }
-            })
-            $('.fa-times-circle').on('click', function() {
-                $('#message').addClass('hide-message');
-            })
-        });
-        if ($("nav.pagination a[rel=next]").length){
-            $(".comment-area").infiniteScroll({
-              path: "nav.pagination a[rel=next]",
-              append: ".comment-box",
-              prefill: false,
-              history: false,
-              hideNav: "nav.pagination",
-              status: '.page-load-status'
-            })
-        }
-    });
-
-</script>

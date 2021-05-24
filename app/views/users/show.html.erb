@@ -59,34 +59,3 @@
         <p class = "my-post">まだ投稿がありません</p>
     <% end %>
 </div>
-
-
-
-<script>
-    $(document).on('turbolinks:load', function() {
-        $(function() {
-            $('.image').on('click', function() {
-                $(this).parent("div").prev("div").addClass('show');
-                $(this).parent("div").prev("div").children("img").addClass('show');
-                var imageSrc = $(this).attr('src');
-                $(this).parent("div").prev("div").children("img").attr('src', imageSrc);
-            });
-            $('.modal-wrapper').on('click', function(){
-                if (this.classList.contains('show')) {
-                    this.classList.remove('show');
-                    $(this).children("img").removeClass('show');
-                }
-            })
-        });
-        if ($("nav.pagination a[rel=next]").length){
-            $(".cooks-container").infiniteScroll({
-              path: "nav.pagination a[rel=next]",
-              append: ".cooks-box",
-              prefill: false,
-              history: false,
-              hideNav: "nav.pagination",
-              status: '.page-load-status'
-            })
-        }
-    });
-</script>

@@ -23,7 +23,6 @@
 
         <% end %>
         <% if @cookposts[0] != nil %>
-        <div class = "cooks-post-container">
             <div class = "cooks-box">
                 <% @cookposts.each do |cookpost| %>
                     <div class = "section-cookpost-users">
@@ -59,7 +58,6 @@
                     </div>
                 <% end %>
             </div>
-        </div>
         <%= paginate @cookposts %>
         <% if @cookposts.size > 10 %>
             <div class = "page-load-status">
@@ -98,46 +96,4 @@
         }
         return false;
     }
-
-
-
-    $(document).on('turbolinks:load', function() {
-        $(function() {
-            $('.image').on('click', function() {
-                $(this).parent("div").prev("div").addClass('show');
-                $(this).parent("div").prev("div").children("img").addClass('show');
-                var imageSrc = $(this).attr('src');
-                $(this).parent("div").prev("div").children("img").attr('src', imageSrc);
-            });
-            $('.modal-wrapper').on('click', function(){
-                if (this.classList.contains('show')) {
-                    this.classList.remove('show');
-                    $(this).children("img").removeClass('show');
-                }
-            })
-            $('.user-menu-list').on('click', function() {
-                $('.user-menu-hide:not(:animated)').slideToggle();
-                $('.user-menu-fa-down').toggleClass('fa-active');
-
-            })
-            $('.user-menu-list-2').on('click', function() {
-                $('.user-menu-hide-2:not(:animated)').slideToggle();
-                $('.user-menu-fa-down-2').toggleClass('fa-active');
-
-            })
-            $('.fa-times-circle').on('click', function() {
-                $('#message').addClass('hide-message');
-            })
-        });
-        if ($("nav.pagination a[rel=next]").length){
-            $(".cooks-post-container").infiniteScroll({
-              path: "nav.pagination a[rel=next]",
-              append: ".cooks-box",
-              prefill: false,
-              history: false,
-              hideNav: "nav.pagination",
-              status: '.page-load-status'
-            })
-        }
-    });
 </script>
