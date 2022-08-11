@@ -33,7 +33,7 @@ jobs:
     - run:
         name: "Node.js と npm の更新"
         command: |
-          curl -sSL "https://nodejs.org/dist/latest/node-v18.7.0-linux-ppc64le.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v18.7.0-linux-ppc64le/bin/node
+          curl -sSL "https://nodejs.org/dist/latest/node-v18.7.0-linux-arm64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v18.7.0-linux-arm64.tar/bin/node
           curl https://www.npmjs.com/install.sh | sudo bash
     - restore_cache:
         keys:
